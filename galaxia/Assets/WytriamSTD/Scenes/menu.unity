@@ -481,7 +481,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Asteroids
+  m_Text: Title
 --- !u!222 &999170568
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1002,9 +1002,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Move with WASD or Arrow Keys\nShoot with Space Bar\nAt the beginning of
-    each wave, you gain an additional ship. \nWhen there are no more ships, you lose.
-    \nSurvive as many waves as you can!"
+  m_Text: Game Instructions
 --- !u!222 &1833542149
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1268,7 +1266,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Begin Mission
+  m_Text: Play
 --- !u!222 &1934287652
 CanvasRenderer:
   m_ObjectHideFlags: 0
