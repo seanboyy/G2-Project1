@@ -380,6 +380,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1425294271}
+  - component: {fileID: 1425294272}
   m_Layer: 0
   m_Name: PlayerShip
   m_TagString: Untagged
@@ -402,6 +403,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1425294272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1425294270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10f93ea44e56ed840897f9e76ffd2a8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 30
+  rollMult: -45
+  pitchMult: 30
+  gameRestartDelay: 2
+  projectilePrefab: {fileID: 0}
+  projectileSpeed: 40
+  _shieldLevel: 1
 --- !u!1 &1534425417
 GameObject:
   m_ObjectHideFlags: 0
