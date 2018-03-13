@@ -6,6 +6,8 @@ public class Hero : MonoBehaviour
 {
     static public Hero S; // Singleton
 
+    public bool isRolling = false;
+
     [Header("Set in Inspector")]
     // These fields control the movement of the ship
     public float speed = 30;
@@ -55,7 +57,19 @@ public class Hero : MonoBehaviour
         {
             TempFire();
         }
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            isRolling = true;
+            StartCoroutine("BarrelRoll");
+        }
 	}
+
+    IEnumerator BarrelRoll()
+    {
+        Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 360, 0), Time.deltaTime * 10);
+        Debug.Log("Rolling");
+        yield return null;
+    }
 
     void TempFire()
     {
@@ -80,7 +94,7 @@ public class Hero : MonoBehaviour
 
         if (go.tag == "Enemy")  // If the shield ws triggered by an enemy
         {
-            shieldLevel--;      // Decrease the level of the shield by 1
+            ShieldLevel--;      // Decrease the level of the shield by 1
             Destroy(go);        // ... and Destroy the enemy
         }
         else
@@ -89,7 +103,7 @@ public class Hero : MonoBehaviour
         }
     }
 
-    public float shieldLevel
+    public float ShieldLevel
     {
         get
         {
