@@ -11,3 +11,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/WytriamSTD/Scenes/menu.unity
     guid: 1343f0d4558ae57448fdc126c7436cf0
+  - enabled: 1
+    path: Assets/Scenes/sandbox.unity
+    guid: fadccfdb16afe7e439babf51e997acf5

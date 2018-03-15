@@ -38,8 +38,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4857351386757430}
   - component: {fileID: 33394795264113188}
-  - component: {fileID: 135879971299409798}
   - component: {fileID: 23203079479852464}
+  - component: {fileID: 136592434134173862}
   m_Layer: 9
   m_Name: WingR
   m_TagString: Untagged
@@ -57,6 +57,7 @@ GameObject:
   - component: {fileID: 4092251002249922}
   - component: {fileID: 54265186122549144}
   - component: {fileID: 114943127311480514}
+  - component: {fileID: 114987420900319940}
   m_Layer: 9
   m_Name: Enemy_4
   m_TagString: Enemy
@@ -73,8 +74,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4295950857595956}
   - component: {fileID: 33104756265336330}
-  - component: {fileID: 135517484300078096}
   - component: {fileID: 23280602168998902}
+  - component: {fileID: 136760639129402744}
   m_Layer: 9
   m_Name: Fuselage
   m_TagString: Untagged
@@ -91,8 +92,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4813961873951880}
   - component: {fileID: 33601919057719780}
-  - component: {fileID: 135932588311442880}
   - component: {fileID: 23686416641318070}
+  - component: {fileID: 136079040751870210}
   m_Layer: 9
   m_Name: WingL
   m_TagString: Untagged
@@ -359,18 +360,61 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4f6caf5b7165f94db0a5aad90e3f17d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!135 &135517484300078096
-SphereCollider:
+  speed: 10
+  fireRate: 0.3
+  health: 10
+  score: 100
+  showDamageDuration: 0.1
+  powerUpDropChance: 1
+  originalColors: []
+  materials: []
+  showingDamage: 0
+  damageDoneTime: 0
+  notifiedOfDestruction: 0
+  parts:
+  - name: Cockpit
+    health: 10
+    protectedBy:
+    - Fuselage
+    go: {fileID: 0}
+    mat: {fileID: 0}
+  - name: Fuselage
+    health: 10
+    protectedBy:
+    - WingL
+    - WingR
+    go: {fileID: 0}
+    mat: {fileID: 0}
+  - name: WingL
+    health: 10
+    protectedBy: []
+    go: {fileID: 0}
+    mat: {fileID: 0}
+  - name: WingR
+    health: 10
+    protectedBy: []
+    go: {fileID: 0}
+    mat: {fileID: 0}
+--- !u!114 &114987420900319940
+MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1705058430264538}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_GameObject: {fileID: 1690630699509914}
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 583ca063b8f2e8b4ea2b56a54afa6bb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 3.5
+  keepOnScreen: 0
+  isOnScreen: 1
+  camWidth: 0
+  camHeight: 0
+  offRight: 0
+  offLeft: 0
+  offUp: 0
+  offDown: 0
 --- !u!135 &135811236148467746
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -383,20 +427,8 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!135 &135879971299409798
-SphereCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1072567175380148}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!135 &135932588311442880
-SphereCollider:
+--- !u!136 &136079040751870210
+CapsuleCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -404,6 +436,33 @@ SphereCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
   m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 0
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!136 &136592434134173862
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1072567175380148}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1.0000002
+  m_Direction: 0
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!136 &136760639129402744
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1705058430264538}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
