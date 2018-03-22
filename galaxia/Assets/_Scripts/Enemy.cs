@@ -84,13 +84,14 @@ public class Enemy : MonoBehaviour
                 // Hurt this Enemy
                 ShowDamage();
                 // Get the damage amound from the Main WEAP_DICT
-                health -= Main.GetWeaponDefinition(p.type).damageOnHit;
+                //health -= Main.GetWeaponDefinition(p.type).damageOnHit;
+                health--;
                 if (health <= 0)
                 {
                     // Tell the Main singleton that this ship was destroyed
                     if (!notifiedOfDestruction)
                     {
-                        Main.S.ShipDestroyed(this);
+                       //Main.S.ShipDestroyed(this);
                     }
                     notifiedOfDestruction = true;
                     // Destroy this Enemy

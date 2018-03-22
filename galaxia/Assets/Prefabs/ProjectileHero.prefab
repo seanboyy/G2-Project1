@@ -19,12 +19,12 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4846483325537008}
+  - component: {fileID: 114865539142688806}
+  - component: {fileID: 114288489946723974}
   - component: {fileID: 33177918340118368}
   - component: {fileID: 65764085411441682}
   - component: {fileID: 23452556288200768}
   - component: {fileID: 54376682747196390}
-  - component: {fileID: 114865539142688806}
-  - component: {fileID: 114156582040507282}
   m_Layer: 10
   m_Name: ProjectileHero
   m_TagString: ProjectileHero
@@ -39,7 +39,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1259417549341954}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.25, y: 1, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
@@ -59,7 +59,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: ec58f9f0884e07041b9b5818e66f8adb, type: 2}
+  - {fileID: 2100000, guid: 57984292f451afb43a6e4aadd6718542, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -113,7 +113,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 10}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114156582040507282
+--- !u!114 &114288489946723974
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -121,11 +121,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1259417549341954}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 583ca063b8f2e8b4ea2b56a54afa6bb9, type: 3}
+  m_Script: {fileID: 11500000, guid: c97f64fbfab4c1c45af5357d6dcbc784, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: -1
+  radius: 1
   keepOnScreen: 0
+  wrap: 0
+  deleteIfOffScren: 0
   isOnScreen: 1
   camWidth: 0
   camHeight: 0
@@ -144,3 +146,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8c267b10f9ec4b4783422bd8fc7ec36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rigid: {fileID: 0}
+  _type: 0

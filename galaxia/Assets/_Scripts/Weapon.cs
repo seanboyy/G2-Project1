@@ -90,7 +90,7 @@ public class Weapon : MonoBehaviour
         {
             this.gameObject.SetActive(true);
         }
-        def = Main.GetWeaponDefinition(_type);
+        //def = Main.GetWeaponDefinition(_type);
         collarRend.material.color = def.color;
         lastShotTime = 0;   // You can fire immediately after _type is set
     }

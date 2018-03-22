@@ -19,7 +19,7 @@ public class Projectile : MonoBehaviour
         set { SetType(value); }
     }
 
-    void Awake()
+    void Start()
     {
         bndCheck = GetComponent<BoundsCheck>();
         rend = GetComponent<Renderer>();
@@ -44,7 +44,7 @@ public class Projectile : MonoBehaviour
     {
         // Set the _type
         _type = eType;
-        WeaponDefinition def = Main.GetWeaponDefinition(_type);
-        rend.material.color = def.projectileColor;
+        //WeaponDefinition def = Main.GetWeaponDefinition(_type);
+        //rend.material.color = def.projectileColor;
     }
 }

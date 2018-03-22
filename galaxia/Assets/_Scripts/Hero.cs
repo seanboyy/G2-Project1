@@ -14,7 +14,7 @@ public class Hero : MonoBehaviour
     public float gameRestartDelay = 2f;
     public GameObject projectilePrefab;
     public float projectileSpeed = 40;
-    public Weapon[] weapons;
+    //public Weapon[] weapons;
 
     [Header("Set Dynamically")]
     [SerializeField]
@@ -39,8 +39,8 @@ public class Hero : MonoBehaviour
             Debug.LogError("Hero.Awake() - Attempted to assign second Hero.S!");
         }
         // Reset the weapons to start _Hero with 1 blaster
-        ClearWeapons();
-        weapons[0].SetType(WeaponType.blaster);
+        //ClearWeapons();
+        //weapons[0].SetType(WeaponType.blaster);
     }
 	
 	// Update is called once per frame
@@ -68,9 +68,10 @@ public class Hero : MonoBehaviour
         // Use the fireDelegate to fire Weapons
         // First, make sure that the button is pressed: Axis("Jump")
         // Then ensure that fireDelegate isn't null to avoid an error
-        if (Input.GetAxis("Jump") == 1 && fireDelegate != null)
+        if (Input.GetAxis("Jump") == 1 )//&& fireDelegate != null)
         {
-            fireDelegate();
+            //fireDelegate();
+            Instantiate<GameObject>(projectilePrefab, gameObject.transform).GetComponent<Rigidbody>().velocity = Vector3.up * projectileSpeed;
         }
 	}
 
@@ -95,7 +96,7 @@ public class Hero : MonoBehaviour
         else if (go.tag == "PowerUp")
         {
             // If the shield was triggered by a PowerUp
-            AbsorbPowerUp(go);
+            //AbsorbPowerUp(go);
         }
         else
         {
@@ -103,6 +104,7 @@ public class Hero : MonoBehaviour
         }
     }
 
+    /*
     public void AbsorbPowerUp(GameObject go)
     {
         PowerUp pu = go.GetComponent<PowerUp>();
@@ -129,7 +131,7 @@ public class Hero : MonoBehaviour
         }
         pu.AbsorbedBy(this.gameObject);
     }
-
+    */
     public float shieldLevel
     {
         get
@@ -144,11 +146,11 @@ public class Hero : MonoBehaviour
             {
                 Destroy(this.gameObject);
                 // Tell Main.S to restart the game after a delay
-                Main.S.DelayedRestart(gameRestartDelay);
+                //Main.S.DelayedRestart(gameRestartDelay);
             }
         }
     }
-
+    /*
     Weapon GetEmptyWeaponSlot()
     {
         for (int i=0; i<weapons.Length;i++)
@@ -168,4 +170,5 @@ public class Hero : MonoBehaviour
             w.SetType(WeaponType.none);
         }
     }
+    */
 }

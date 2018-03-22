@@ -6,6 +6,7 @@ public class Shield : MonoBehaviour
 {
     [Header("Set in Inspector")]
     public float rotationPerSecond = 0.1f;
+    public GameObject ship;
 
     [Header("Set Dynamically")]
     public int levelShown = 0;
@@ -23,7 +24,7 @@ public class Shield : MonoBehaviour
 	void Update ()
     {
         // Read the current shield level from the Hero Singleton
-        int currLevel = Mathf.FloorToInt(Hero.S.shieldLevel);
+        int currLevel = Mathf.FloorToInt(ship.GetComponent<Hero>().shieldLevel);
         // If this is different from levelShown...
         if (levelShown != currLevel)
         {
