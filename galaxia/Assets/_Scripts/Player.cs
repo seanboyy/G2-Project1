@@ -7,32 +7,62 @@ public class Player : MonoBehaviour
     public float speed = 10f;
     public float rotationSpeed = 10F;
 
-	// Use this for initialization
+    private bool isRolling = false;
+    
 	void Start ()
     {
 		
 	}
 	
-	// Update is called once per frame
 	void Update ()
     {
-        float movement = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
+        float movement;
+        if (!isRolling)
+        {
+            movement = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
+        }
+        else
+        {
+            movement = 0;
+        }
         Vector3 pos = gameObject.transform.position;
         gameObject.transform.position = new Vector3(pos.x + movement, pos.y, pos.z);
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Q) && !isRolling)
         {
-            StartCoroutine("BarrelRoll");
+            isRolling = true;
+            StartCoroutine("BarrelRollLeft");
+        }
+        if (Input.GetKeyDown(KeyCode.E) && !isRolling)
+        {
+            isRolling = true;
+            StartCoroutine("BarrelRollRight");
         }
 	}
 
-    IEnumerator BarrelRoll()
+    IEnumerator BarrelRollLeft()
     {
         while(transform.rotation.eulerAngles.y < 349)
         {
             transform.Rotate(Vector3.up * rotationSpeed);
+            transform.position += Vector3.left * speed * Time.deltaTime;
             yield return new WaitForEndOfFrame();
         }
         transform.rotation = Quaternion.Euler(0, 0, 0);
-        StopCoroutine("BarrelRoll");
+        isRolling = false;
+        StopCoroutine("BarrelRollLeft");
+    }
+
+    IEnumerator BarrelRollRight()
+    {
+        do
+        {
+            transform.Rotate(Vector3.down * rotationSpeed);
+            transform.position += Vector3.right * speed * Time.deltaTime;
+            yield return new WaitForEndOfFrame();
+        }
+        while (transform.rotation.eulerAngles.y > 11);
+        transform.rotation = Quaternion.Euler(0, 0, 0);
+        isRolling = false;
+        StopCoroutine("BarrelRollRight");
     }
 }

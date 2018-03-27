@@ -20,8 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4866116786663428}
   - component: {fileID: 54644883697525568}
-  - component: {fileID: 114701305438233200}
-  - component: {fileID: 114413880409348292}
+  - component: {fileID: 114961285720469392}
   m_Layer: 9
   m_Name: Enemy_3
   m_TagString: Enemy
@@ -38,8 +37,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4035826081913386}
   - component: {fileID: 33441391508924096}
-  - component: {fileID: 135884759915593198}
   - component: {fileID: 23687512319418966}
+  - component: {fileID: 136642773999138998}
   m_Layer: 9
   m_Name: Wing
   m_TagString: Untagged
@@ -56,8 +55,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4541681432035714}
   - component: {fileID: 33237141952020134}
-  - component: {fileID: 135053038058842360}
   - component: {fileID: 23731851384399172}
+  - component: {fileID: 136791925026570198}
   m_Layer: 9
   m_Name: CockpitR
   m_TagString: Untagged
@@ -74,8 +73,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4602990090862472}
   - component: {fileID: 33978218810987682}
-  - component: {fileID: 135673192277277656}
   - component: {fileID: 23467552354952872}
+  - component: {fileID: 136098272931903092}
   m_Layer: 9
   m_Name: CockpitL
   m_TagString: Untagged
@@ -276,7 +275,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 120
   m_CollisionDetection: 0
---- !u!114 &114413880409348292
+--- !u!114 &114961285720469392
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -284,27 +283,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1045532420771898}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 583ca063b8f2e8b4ea2b56a54afa6bb9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  radius: 2.5
-  keepOnScreen: 0
-  isOnScreen: 1
-  camWidth: 0
-  camHeight: 0
-  offRight: 0
-  offLeft: 0
-  offUp: 0
-  offDown: 0
---- !u!114 &114701305438233200
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1045532420771898}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15387baf0767c6c42b4a6d16338e24d0, type: 3}
+  m_Script: {fileID: 11500000, guid: 88825c3417003444fbdda2d793207fd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
@@ -312,29 +291,14 @@ MonoBehaviour:
   health: 10
   score: 100
   showDamageDuration: 0.1
-  powerUpDropChance: 0.75
+  powerUpDropChance: 1
   originalColors: []
   materials: []
   showingDamage: 0
   damageDoneTime: 0
   notifiedOfDestruction: 0
-  lifeTime: 5
-  points: []
-  birthTime: 0
---- !u!135 &135053038058842360
-SphereCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1483506417549620}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!135 &135673192277277656
-SphereCollider:
+--- !u!136 &136098272931903092
+CapsuleCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -342,11 +306,12 @@ SphereCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
   m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!135 &135884759915593198
-SphereCollider:
+--- !u!136 &136642773999138998
+CapsuleCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -354,6 +319,20 @@ SphereCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
   m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 0
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!136 &136791925026570198
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1483506417549620}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
