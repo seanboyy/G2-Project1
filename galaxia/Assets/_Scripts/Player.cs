@@ -4,11 +4,17 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    [Header("Movement")]
     public float speed = 10f;
     public float rotationSpeed = 10F;
-
+    
     private bool isRolling = false;
     
+    [Header("Shooting")]
+    public GameObject projectilePrefab;
+    public float projectileSpeed = 40f;
+
+	// Use this for initialization
 	void Start ()
     {
 		
@@ -36,6 +42,11 @@ public class Player : MonoBehaviour
         {
             isRolling = true;
             StartCoroutine("BarrelRollRight");
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Instantiate<GameObject>(projectilePrefab, gameObject.transform.position, new Quaternion()).GetComponent<Rigidbody>().velocity = Vector3.up * projectileSpeed;
         }
 	}
 
