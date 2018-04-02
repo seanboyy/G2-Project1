@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
     public float speed = 10f;
     public float rotationSpeed = 10F;
     
-    private bool isRolling = false;
+    private bool isRolling = false; 
     
     [Header("Shooting")]
     public GameObject projectilePrefab;
