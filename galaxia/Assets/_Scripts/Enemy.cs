@@ -17,7 +17,7 @@ public class Enemy : MonoBehaviour
     public Material[] materials;    // All the materials of this & its children
     public bool showingDamage = false;
     public float damageDoneTime;    // Time to stop showing damage
-    public bool notifiedOfDestruction = false;  // Will be used later
+    public bool notifiedOfDestruction = false; 
 
     protected BoundsCheck bndCheck;
 
