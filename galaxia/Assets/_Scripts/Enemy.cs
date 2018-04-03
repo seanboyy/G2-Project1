@@ -2,6 +2,13 @@
 using System.Collections.Generic;   // Required for Lists and Dictionaries
 using UnityEngine;                  // Required for Unity
 
+//tentative scores:
+//basic enemy: 100 pts
+//enemy 1: 125 pts
+//enemy 2: 150 pts
+//enemy 3: 200 pts
+//enemy 4: 500 pts
+
 public class Enemy : MonoBehaviour
 {
     [Header("Set in Inspector: Enemy")]
