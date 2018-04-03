@@ -37,9 +37,11 @@ public class Enemy : MonoBehaviour
     public Material[] materials;    // All the materials of this & its children
     public bool showingDamage = false;
     public float damageDoneTime;    // Time to stop showing damage
-    public bool notifiedOfDestruction = false; 
+    public GameObject scoreFloatText;
+    public bool notifiedOfDestruction = false;
 
     protected BoundsCheck bndCheck;
+
 
     void Awake()
     {
@@ -109,6 +111,7 @@ public class Enemy : MonoBehaviour
                     }
                     notifiedOfDestruction = true;
                     // Destroy this Enemy
+                    Instantiate(scoreFloatText).GetComponent<ScoreFloatText>().InitializeText("+" + score, gameObject.transform.position, Color.blue);
                     Destroy(this.gameObject);
                 }
                 Destroy(otherGO);

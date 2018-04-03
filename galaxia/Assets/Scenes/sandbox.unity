@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.4964127, b: 0.5748172, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -221,42 +221,9 @@ Prefab:
       propertyPath: m_Name
       value: Enemy_0 (4)
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 114249938514989318, guid: a796551ac8d598f4582c8297fb2bf3a9, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a796551ac8d598f4582c8297fb2bf3a9, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &81358927 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1957086455502422, guid: a796551ac8d598f4582c8297fb2bf3a9,
-    type: 2}
-  m_PrefabInternal: {fileID: 81358926}
---- !u!114 &81358928
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 81358927}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca7936e967c53f444956f506fee2648e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 10
-  fireRate: 0.3
-  health: 10
-  score: 100
-  showDamageDuration: 0.1
-  powerUpDropChance: 1
-  status: 0
-  originalColors: []
-  materials: []
-  showingDamage: 0
-  damageDoneTime: 0
-  notifiedOfDestruction: 0
-  moveSpeed: 5
-  rankPos: {x: 0, y: 0, z: 0}
-  attacking: 0
-  cycleTime: 0
 --- !u!1001 &142556518
 Prefab:
   m_ObjectHideFlags: 0
@@ -301,7 +268,7 @@ Prefab:
       value: Enemy_0 (2)
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 114249938514989318, guid: a796551ac8d598f4582c8297fb2bf3a9, type: 2}
+    - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: a796551ac8d598f4582c8297fb2bf3a9, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &142556519 stripped
@@ -331,6 +298,8 @@ MonoBehaviour:
   materials: []
   showingDamage: 0
   damageDoneTime: 0
+  scoreFloatText: {fileID: 1782784489030068, guid: f0eef297eb3e7604a9ec010f36af7557,
+    type: 2}
   notifiedOfDestruction: 0
   moveSpeed: 5
   rankPos: {x: 0, y: 0, z: 0}
@@ -380,7 +349,7 @@ Prefab:
       value: Enemy_0 (9)
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 114249938514989318, guid: a796551ac8d598f4582c8297fb2bf3a9, type: 2}
+    - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: a796551ac8d598f4582c8297fb2bf3a9, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &242598120 stripped
@@ -410,6 +379,8 @@ MonoBehaviour:
   materials: []
   showingDamage: 0
   damageDoneTime: 0
+  scoreFloatText: {fileID: 1782784489030068, guid: f0eef297eb3e7604a9ec010f36af7557,
+    type: 2}
   notifiedOfDestruction: 0
   moveSpeed: 5
   rankPos: {x: 0, y: 0, z: 0}
@@ -459,7 +430,7 @@ Prefab:
       value: Enemy_0 (10)
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 114249938514989318, guid: a796551ac8d598f4582c8297fb2bf3a9, type: 2}
+    - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: a796551ac8d598f4582c8297fb2bf3a9, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &350252039 stripped
@@ -489,6 +460,8 @@ MonoBehaviour:
   materials: []
   showingDamage: 0
   damageDoneTime: 0
+  scoreFloatText: {fileID: 1782784489030068, guid: f0eef297eb3e7604a9ec010f36af7557,
+    type: 2}
   notifiedOfDestruction: 0
   moveSpeed: 5
   rankPos: {x: 0, y: 0, z: 0}
@@ -685,7 +658,7 @@ Prefab:
       value: Enemy_0 (1)
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 114249938514989318, guid: a796551ac8d598f4582c8297fb2bf3a9, type: 2}
+    - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: a796551ac8d598f4582c8297fb2bf3a9, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &567037825 stripped
@@ -715,6 +688,8 @@ MonoBehaviour:
   materials: []
   showingDamage: 0
   damageDoneTime: 0
+  scoreFloatText: {fileID: 1782784489030068, guid: f0eef297eb3e7604a9ec010f36af7557,
+    type: 2}
   notifiedOfDestruction: 0
   moveSpeed: 5
   rankPos: {x: 0, y: 0, z: 0}
@@ -801,6 +776,80 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &817067949
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 817067950}
+  - component: {fileID: 817067952}
+  - component: {fileID: 817067951}
+  m_Layer: 5
+  m_Name: Score
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &817067950
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 817067949}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 499049106}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 300, y: 30}
+  m_Pivot: {x: 1, y: 1}
+--- !u!114 &817067951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 817067949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 24
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 41
+    m_Alignment: 2
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'SCORE: '
+--- !u!222 &817067952
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 817067949}
 --- !u!1001 &881181020
 Prefab:
   m_ObjectHideFlags: 0
@@ -845,7 +894,7 @@ Prefab:
       value: Enemy_0 (13)
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 114249938514989318, guid: a796551ac8d598f4582c8297fb2bf3a9, type: 2}
+    - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: a796551ac8d598f4582c8297fb2bf3a9, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &881181021 stripped
@@ -875,6 +924,8 @@ MonoBehaviour:
   materials: []
   showingDamage: 0
   damageDoneTime: 0
+  scoreFloatText: {fileID: 1782784489030068, guid: f0eef297eb3e7604a9ec010f36af7557,
+    type: 2}
   notifiedOfDestruction: 0
   moveSpeed: 5
   rankPos: {x: 0, y: 0, z: 0}
@@ -924,7 +975,7 @@ Prefab:
       value: Enemy_0 (11)
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 114249938514989318, guid: a796551ac8d598f4582c8297fb2bf3a9, type: 2}
+    - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: a796551ac8d598f4582c8297fb2bf3a9, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1038989975 stripped
@@ -954,6 +1005,8 @@ MonoBehaviour:
   materials: []
   showingDamage: 0
   damageDoneTime: 0
+  scoreFloatText: {fileID: 1782784489030068, guid: f0eef297eb3e7604a9ec010f36af7557,
+    type: 2}
   notifiedOfDestruction: 0
   moveSpeed: 5
   rankPos: {x: 0, y: 0, z: 0}
@@ -1003,7 +1056,7 @@ Prefab:
       value: Enemy_0 (8)
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 114249938514989318, guid: a796551ac8d598f4582c8297fb2bf3a9, type: 2}
+    - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: a796551ac8d598f4582c8297fb2bf3a9, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1057874026 stripped
@@ -1033,6 +1086,8 @@ MonoBehaviour:
   materials: []
   showingDamage: 0
   damageDoneTime: 0
+  scoreFloatText: {fileID: 1782784489030068, guid: f0eef297eb3e7604a9ec010f36af7557,
+    type: 2}
   notifiedOfDestruction: 0
   moveSpeed: 5
   rankPos: {x: 0, y: 0, z: 0}
@@ -1078,7 +1133,7 @@ Prefab:
       value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 114249938514989318, guid: a796551ac8d598f4582c8297fb2bf3a9, type: 2}
+    - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: a796551ac8d598f4582c8297fb2bf3a9, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1106418698 stripped
@@ -1108,6 +1163,8 @@ MonoBehaviour:
   materials: []
   showingDamage: 0
   damageDoneTime: 0
+  scoreFloatText: {fileID: 1782784489030068, guid: f0eef297eb3e7604a9ec010f36af7557,
+    type: 2}
   notifiedOfDestruction: 0
   moveSpeed: 5
   rankPos: {x: 0, y: 0, z: 0}
@@ -1157,7 +1214,7 @@ Prefab:
       value: Enemy_0 (3)
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 114249938514989318, guid: a796551ac8d598f4582c8297fb2bf3a9, type: 2}
+    - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: a796551ac8d598f4582c8297fb2bf3a9, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1478590628 stripped
@@ -1187,6 +1244,8 @@ MonoBehaviour:
   materials: []
   showingDamage: 0
   damageDoneTime: 0
+  scoreFloatText: {fileID: 1782784489030068, guid: f0eef297eb3e7604a9ec010f36af7557,
+    type: 2}
   notifiedOfDestruction: 0
   moveSpeed: 5
   rankPos: {x: 0, y: 0, z: 0}
@@ -1279,7 +1338,7 @@ Prefab:
       value: Enemy_0 (7)
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 114249938514989318, guid: a796551ac8d598f4582c8297fb2bf3a9, type: 2}
+    - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: a796551ac8d598f4582c8297fb2bf3a9, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1868878869 stripped
@@ -1309,6 +1368,8 @@ MonoBehaviour:
   materials: []
   showingDamage: 0
   damageDoneTime: 0
+  scoreFloatText: {fileID: 1782784489030068, guid: f0eef297eb3e7604a9ec010f36af7557,
+    type: 2}
   notifiedOfDestruction: 0
   moveSpeed: 5
   rankPos: {x: 0, y: 0, z: 0}
@@ -1426,7 +1487,7 @@ Prefab:
       value: Enemy_0 (12)
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 114249938514989318, guid: a796551ac8d598f4582c8297fb2bf3a9, type: 2}
+    - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: a796551ac8d598f4582c8297fb2bf3a9, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1879582761 stripped
@@ -1456,6 +1517,8 @@ MonoBehaviour:
   materials: []
   showingDamage: 0
   damageDoneTime: 0
+  scoreFloatText: {fileID: 1782784489030068, guid: f0eef297eb3e7604a9ec010f36af7557,
+    type: 2}
   notifiedOfDestruction: 0
   moveSpeed: 5
   rankPos: {x: 0, y: 0, z: 0}
@@ -1505,7 +1568,7 @@ Prefab:
       value: Enemy_0 (6)
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 114249938514989318, guid: a796551ac8d598f4582c8297fb2bf3a9, type: 2}
+    - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: a796551ac8d598f4582c8297fb2bf3a9, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1966929795 stripped
@@ -1535,6 +1598,8 @@ MonoBehaviour:
   materials: []
   showingDamage: 0
   damageDoneTime: 0
+  scoreFloatText: {fileID: 1782784489030068, guid: f0eef297eb3e7604a9ec010f36af7557,
+    type: 2}
   notifiedOfDestruction: 0
   moveSpeed: 5
   rankPos: {x: 0, y: 0, z: 0}
@@ -1584,7 +1649,7 @@ Prefab:
       value: Enemy_0 (5)
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 114249938514989318, guid: a796551ac8d598f4582c8297fb2bf3a9, type: 2}
+    - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: a796551ac8d598f4582c8297fb2bf3a9, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &2029192611 stripped
@@ -1614,6 +1679,8 @@ MonoBehaviour:
   materials: []
   showingDamage: 0
   damageDoneTime: 0
+  scoreFloatText: {fileID: 1782784489030068, guid: f0eef297eb3e7604a9ec010f36af7557,
+    type: 2}
   notifiedOfDestruction: 0
   moveSpeed: 5
   rankPos: {x: 0, y: 0, z: 0}
