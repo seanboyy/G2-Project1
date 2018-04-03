@@ -247,6 +247,7 @@ MonoBehaviour:
   score: 100
   showDamageDuration: 0.1
   powerUpDropChance: 1
+  status: 0
   originalColors: []
   materials: []
   showingDamage: 0
@@ -325,6 +326,7 @@ MonoBehaviour:
   score: 100
   showDamageDuration: 0.1
   powerUpDropChance: 1
+  status: 0
   originalColors: []
   materials: []
   showingDamage: 0
@@ -403,6 +405,7 @@ MonoBehaviour:
   score: 100
   showDamageDuration: 0.1
   powerUpDropChance: 1
+  status: 0
   originalColors: []
   materials: []
   showingDamage: 0
@@ -481,6 +484,7 @@ MonoBehaviour:
   score: 100
   showDamageDuration: 0.1
   powerUpDropChance: 1
+  status: 0
   originalColors: []
   materials: []
   showingDamage: 0
@@ -499,7 +503,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4816830932426246, guid: 0612df87cd719dc44a759b2690190d1c, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -18
       objectReference: {fileID: 0}
     - target: {fileID: 4816830932426246, guid: 0612df87cd719dc44a759b2690190d1c, type: 2}
       propertyPath: m_LocalPosition.y
@@ -706,6 +710,7 @@ MonoBehaviour:
   score: 100
   showDamageDuration: 0.1
   powerUpDropChance: 1
+  status: 0
   originalColors: []
   materials: []
   showingDamage: 0
@@ -865,6 +870,7 @@ MonoBehaviour:
   score: 100
   showDamageDuration: 0.1
   powerUpDropChance: 1
+  status: 0
   originalColors: []
   materials: []
   showingDamage: 0
@@ -943,6 +949,7 @@ MonoBehaviour:
   score: 100
   showDamageDuration: 0.1
   powerUpDropChance: 1
+  status: 0
   originalColors: []
   materials: []
   showingDamage: 0
@@ -1021,6 +1028,7 @@ MonoBehaviour:
   score: 100
   showDamageDuration: 0.1
   powerUpDropChance: 1
+  status: 0
   originalColors: []
   materials: []
   showingDamage: 0
@@ -1095,6 +1103,7 @@ MonoBehaviour:
   score: 100
   showDamageDuration: 0.1
   powerUpDropChance: 1
+  status: 0
   originalColors: []
   materials: []
   showingDamage: 0
@@ -1173,6 +1182,7 @@ MonoBehaviour:
   score: 100
   showDamageDuration: 0.1
   powerUpDropChance: 1
+  status: 0
   originalColors: []
   materials: []
   showingDamage: 0
@@ -1294,6 +1304,7 @@ MonoBehaviour:
   score: 100
   showDamageDuration: 0.1
   powerUpDropChance: 1
+  status: 0
   originalColors: []
   materials: []
   showingDamage: 0
@@ -1440,6 +1451,7 @@ MonoBehaviour:
   score: 100
   showDamageDuration: 0.1
   powerUpDropChance: 1
+  status: 0
   originalColors: []
   materials: []
   showingDamage: 0
@@ -1518,6 +1530,7 @@ MonoBehaviour:
   score: 100
   showDamageDuration: 0.1
   powerUpDropChance: 1
+  status: 0
   originalColors: []
   materials: []
   showingDamage: 0
@@ -1596,6 +1609,7 @@ MonoBehaviour:
   score: 100
   showDamageDuration: 0.1
   powerUpDropChance: 1
+  status: 0
   originalColors: []
   materials: []
   showingDamage: 0
