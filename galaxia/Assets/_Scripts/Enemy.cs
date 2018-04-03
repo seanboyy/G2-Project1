@@ -72,12 +72,6 @@ public class Enemy : MonoBehaviour
         {
             UnShowDamage();
         }
-
-        if (bndCheck != null && bndCheck.offDown)
-        {
-            // We're off the bottom, so destroy this GameObject
-            Destroy(gameObject);
-        }
 	}
 
     public virtual void Move()

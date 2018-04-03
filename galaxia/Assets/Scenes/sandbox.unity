@@ -253,7 +253,7 @@ MonoBehaviour:
   showingDamage: 0
   damageDoneTime: 0
   notifiedOfDestruction: 0
-  lifeTime: 5
+  moveSpeed: 5
   rankPos: {x: 0, y: 0, z: 0}
   attacking: 0
   cycleTime: 0
@@ -332,7 +332,7 @@ MonoBehaviour:
   showingDamage: 0
   damageDoneTime: 0
   notifiedOfDestruction: 0
-  lifeTime: 5
+  moveSpeed: 5
   rankPos: {x: 0, y: 0, z: 0}
   attacking: 0
   cycleTime: 0
@@ -411,7 +411,7 @@ MonoBehaviour:
   showingDamage: 0
   damageDoneTime: 0
   notifiedOfDestruction: 0
-  lifeTime: 5
+  moveSpeed: 5
   rankPos: {x: 0, y: 0, z: 0}
   attacking: 0
   cycleTime: 0
@@ -490,7 +490,7 @@ MonoBehaviour:
   showingDamage: 0
   damageDoneTime: 0
   notifiedOfDestruction: 0
-  lifeTime: 5
+  moveSpeed: 5
   rankPos: {x: 0, y: 0, z: 0}
   attacking: 0
   cycleTime: 0
@@ -503,7 +503,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4816830932426246, guid: 0612df87cd719dc44a759b2690190d1c, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -18
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4816830932426246, guid: 0612df87cd719dc44a759b2690190d1c, type: 2}
       propertyPath: m_LocalPosition.y
@@ -716,7 +716,7 @@ MonoBehaviour:
   showingDamage: 0
   damageDoneTime: 0
   notifiedOfDestruction: 0
-  lifeTime: 5
+  moveSpeed: 5
   rankPos: {x: 0, y: 0, z: 0}
   attacking: 0
   cycleTime: 0
@@ -876,7 +876,7 @@ MonoBehaviour:
   showingDamage: 0
   damageDoneTime: 0
   notifiedOfDestruction: 0
-  lifeTime: 5
+  moveSpeed: 5
   rankPos: {x: 0, y: 0, z: 0}
   attacking: 0
   cycleTime: 0
@@ -955,7 +955,7 @@ MonoBehaviour:
   showingDamage: 0
   damageDoneTime: 0
   notifiedOfDestruction: 0
-  lifeTime: 5
+  moveSpeed: 5
   rankPos: {x: 0, y: 0, z: 0}
   attacking: 0
   cycleTime: 0
@@ -1034,7 +1034,7 @@ MonoBehaviour:
   showingDamage: 0
   damageDoneTime: 0
   notifiedOfDestruction: 0
-  lifeTime: 5
+  moveSpeed: 5
   rankPos: {x: 0, y: 0, z: 0}
   attacking: 0
   cycleTime: 0
@@ -1109,7 +1109,7 @@ MonoBehaviour:
   showingDamage: 0
   damageDoneTime: 0
   notifiedOfDestruction: 0
-  lifeTime: 5
+  moveSpeed: 5
   rankPos: {x: 0, y: 0, z: 0}
   attacking: 0
   cycleTime: 0
@@ -1188,7 +1188,7 @@ MonoBehaviour:
   showingDamage: 0
   damageDoneTime: 0
   notifiedOfDestruction: 0
-  lifeTime: 5
+  moveSpeed: 5
   rankPos: {x: 0, y: 0, z: 0}
   attacking: 0
   cycleTime: 0
@@ -1310,7 +1310,7 @@ MonoBehaviour:
   showingDamage: 0
   damageDoneTime: 0
   notifiedOfDestruction: 0
-  lifeTime: 5
+  moveSpeed: 5
   rankPos: {x: 0, y: 0, z: 0}
   attacking: 0
   cycleTime: 0
@@ -1457,7 +1457,7 @@ MonoBehaviour:
   showingDamage: 0
   damageDoneTime: 0
   notifiedOfDestruction: 0
-  lifeTime: 5
+  moveSpeed: 5
   rankPos: {x: 0, y: 0, z: 0}
   attacking: 0
   cycleTime: 0
@@ -1536,7 +1536,7 @@ MonoBehaviour:
   showingDamage: 0
   damageDoneTime: 0
   notifiedOfDestruction: 0
-  lifeTime: 5
+  moveSpeed: 5
   rankPos: {x: 0, y: 0, z: 0}
   attacking: 0
   cycleTime: 0
@@ -1615,7 +1615,7 @@ MonoBehaviour:
   showingDamage: 0
   damageDoneTime: 0
   notifiedOfDestruction: 0
-  lifeTime: 5
+  moveSpeed: 5
   rankPos: {x: 0, y: 0, z: 0}
   attacking: 0
   cycleTime: 0
