@@ -22,13 +22,13 @@ public class Enemy_0 : Enemy
 
     public override void Move()
     {
-        if (attacking)
+        if (status == EnemyState.attacking)
         {
             // Bezier curves work based on a u value between 0 & 1
             float u = (Time.time - cycleTime) / lifeTime;
             if (u > 1)
             {
-                attacking = false;
+                status = EnemyState.waiting;
                 return;
             }
 
@@ -41,7 +41,7 @@ public class Enemy_0 : Enemy
         }
         else if (Random.value > 0.5f)
         {
-            attacking = true;
+            status = EnemyState.attacking;
             cycleTime = Time.time;
         }
     }

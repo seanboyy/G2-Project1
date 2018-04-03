@@ -2,6 +2,17 @@
 using System.Collections.Generic;   // Required for Lists and Dictionaries
 using UnityEngine;                  // Required for Unity
 
+/// <summary>
+/// Enum for each of the states an enemy can be in
+/// </summary>
+public enum EnemyState
+{
+    waiting,
+    rushing,    // This shall be the swooshing motion we currently have implemented
+    attacking   // this will be moving very close to the player and shooting, then return to the waiting position
+}
+
+
 //tentative scores:
 //basic enemy: 100 pts
 //enemy 1: 125 pts
@@ -18,6 +29,8 @@ public class Enemy : MonoBehaviour
     public int score = 100;         // Points earned for destroying this
     public float showDamageDuration = 0.1f; // # seconds to show damage
     public float powerUpDropChance = 1f;    // Chance to drop a power-up
+
+    public EnemyState status = EnemyState.waiting;
 
     [Header("Set Dynamically: Enemy")]
     public Color[] originalColors;
