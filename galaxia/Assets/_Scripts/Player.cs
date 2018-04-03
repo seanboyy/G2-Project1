@@ -48,7 +48,10 @@ public class Player : MonoBehaviour
         {
             Instantiate<GameObject>(projectilePrefab, gameObject.transform.position, new Quaternion()).GetComponent<Rigidbody>().velocity = Vector3.up * projectileSpeed;
         }
-	}
+
+        // Update constants so enemies can hunt down the player. 
+        Constants.instance.playerPos = transform.position;
+    }
 
     IEnumerator BarrelRollLeft()
     {

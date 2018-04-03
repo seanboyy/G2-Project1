@@ -113,6 +113,49 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &7490034
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 7490035}
+  - component: {fileID: 7490036}
+  m_Layer: 0
+  m_Name: sandbox_SM
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7490035
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 7490034}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7490036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 7490034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cd2ca5e338cc3d438369b4605dd2c6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  image: {fileID: 0}
+  playerLives: 5
+  playerPos: {x: 0, y: 0, z: 0}
 --- !u!1 &36257435
 GameObject:
   m_ObjectHideFlags: 0
@@ -176,7 +219,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1001 &307836229
 Prefab:
@@ -215,7 +258,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4239894955986386, guid: a796551ac8d598f4582c8297fb2bf3a9, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1957086455502422, guid: a796551ac8d598f4582c8297fb2bf3a9, type: 2}
       propertyPath: m_Name
@@ -252,6 +295,10 @@ MonoBehaviour:
   showingDamage: 0
   damageDoneTime: 0
   notifiedOfDestruction: 0
+  lifeTime: 5
+  rankPos: {x: 0, y: 0, z: 0}
+  attacking: 0
+  birthTime: 0
 --- !u!1001 &441843763
 Prefab:
   m_ObjectHideFlags: 0
@@ -289,7 +336,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4239894955986386, guid: a796551ac8d598f4582c8297fb2bf3a9, type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 1957086455502422, guid: a796551ac8d598f4582c8297fb2bf3a9, type: 2}
       propertyPath: m_Name
@@ -326,6 +373,10 @@ MonoBehaviour:
   showingDamage: 0
   damageDoneTime: 0
   notifiedOfDestruction: 0
+  lifeTime: 5
+  rankPos: {x: 0, y: 0, z: 0}
+  attacking: 0
+  birthTime: 0
 --- !u!1001 &450309094
 Prefab:
   m_ObjectHideFlags: 0
@@ -363,7 +414,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4239894955986386, guid: a796551ac8d598f4582c8297fb2bf3a9, type: 2}
       propertyPath: m_RootOrder
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 1957086455502422, guid: a796551ac8d598f4582c8297fb2bf3a9, type: 2}
       propertyPath: m_Name
@@ -400,6 +451,10 @@ MonoBehaviour:
   showingDamage: 0
   damageDoneTime: 0
   notifiedOfDestruction: 0
+  lifeTime: 5
+  rankPos: {x: 0, y: 0, z: 0}
+  attacking: 0
+  birthTime: 0
 --- !u!1 &577681308
 GameObject:
   m_ObjectHideFlags: 0
@@ -479,7 +534,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &856233397
 Prefab:
@@ -518,7 +573,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4239894955986386, guid: a796551ac8d598f4582c8297fb2bf3a9, type: 2}
       propertyPath: m_RootOrder
-      value: 16
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 1957086455502422, guid: a796551ac8d598f4582c8297fb2bf3a9, type: 2}
       propertyPath: m_Name
@@ -555,6 +610,10 @@ MonoBehaviour:
   showingDamage: 0
   damageDoneTime: 0
   notifiedOfDestruction: 0
+  lifeTime: 5
+  rankPos: {x: 0, y: 0, z: 0}
+  attacking: 0
+  birthTime: 0
 --- !u!1001 &904651954
 Prefab:
   m_ObjectHideFlags: 0
@@ -592,7 +651,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4239894955986386, guid: a796551ac8d598f4582c8297fb2bf3a9, type: 2}
       propertyPath: m_RootOrder
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 1957086455502422, guid: a796551ac8d598f4582c8297fb2bf3a9, type: 2}
       propertyPath: m_Name
@@ -629,6 +688,10 @@ MonoBehaviour:
   showingDamage: 0
   damageDoneTime: 0
   notifiedOfDestruction: 0
+  lifeTime: 5
+  rankPos: {x: 0, y: 0, z: 0}
+  attacking: 0
+  birthTime: 0
 --- !u!1001 &941947045
 Prefab:
   m_ObjectHideFlags: 0
@@ -666,7 +729,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4239894955986386, guid: a796551ac8d598f4582c8297fb2bf3a9, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1957086455502422, guid: a796551ac8d598f4582c8297fb2bf3a9, type: 2}
       propertyPath: m_Name
@@ -703,6 +766,10 @@ MonoBehaviour:
   showingDamage: 0
   damageDoneTime: 0
   notifiedOfDestruction: 0
+  lifeTime: 5
+  rankPos: {x: 0, y: 0, z: 0}
+  attacking: 0
+  birthTime: 0
 --- !u!1001 &963549533
 Prefab:
   m_ObjectHideFlags: 0
@@ -740,7 +807,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4239894955986386, guid: a796551ac8d598f4582c8297fb2bf3a9, type: 2}
       propertyPath: m_RootOrder
-      value: 15
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 1957086455502422, guid: a796551ac8d598f4582c8297fb2bf3a9, type: 2}
       propertyPath: m_Name
@@ -777,6 +844,10 @@ MonoBehaviour:
   showingDamage: 0
   damageDoneTime: 0
   notifiedOfDestruction: 0
+  lifeTime: 5
+  rankPos: {x: 0, y: 0, z: 0}
+  attacking: 0
+  birthTime: 0
 --- !u!1001 &1127540314
 Prefab:
   m_ObjectHideFlags: 0
@@ -814,7 +885,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4239894955986386, guid: a796551ac8d598f4582c8297fb2bf3a9, type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1957086455502422, guid: a796551ac8d598f4582c8297fb2bf3a9, type: 2}
       propertyPath: m_Name
@@ -851,6 +922,10 @@ MonoBehaviour:
   showingDamage: 0
   damageDoneTime: 0
   notifiedOfDestruction: 0
+  lifeTime: 5
+  rankPos: {x: 0, y: 0, z: 0}
+  attacking: 0
+  birthTime: 0
 --- !u!1001 &1132868176
 Prefab:
   m_ObjectHideFlags: 0
@@ -888,7 +963,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4239894955986386, guid: a796551ac8d598f4582c8297fb2bf3a9, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1957086455502422, guid: a796551ac8d598f4582c8297fb2bf3a9, type: 2}
       propertyPath: m_Name
@@ -925,6 +1000,10 @@ MonoBehaviour:
   showingDamage: 0
   damageDoneTime: 0
   notifiedOfDestruction: 0
+  lifeTime: 5
+  rankPos: {x: 0, y: 0, z: 0}
+  attacking: 0
+  birthTime: 0
 --- !u!1001 &1196735585
 Prefab:
   m_ObjectHideFlags: 0
@@ -962,7 +1041,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4239894955986386, guid: a796551ac8d598f4582c8297fb2bf3a9, type: 2}
       propertyPath: m_RootOrder
-      value: 14
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 1957086455502422, guid: a796551ac8d598f4582c8297fb2bf3a9, type: 2}
       propertyPath: m_Name
@@ -999,6 +1078,10 @@ MonoBehaviour:
   showingDamage: 0
   damageDoneTime: 0
   notifiedOfDestruction: 0
+  lifeTime: 5
+  rankPos: {x: 0, y: 0, z: 0}
+  attacking: 0
+  birthTime: 0
 --- !u!1001 &1472130448
 Prefab:
   m_ObjectHideFlags: 0
@@ -1036,7 +1119,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4239894955986386, guid: a796551ac8d598f4582c8297fb2bf3a9, type: 2}
       propertyPath: m_RootOrder
-      value: 11
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 1957086455502422, guid: a796551ac8d598f4582c8297fb2bf3a9, type: 2}
       propertyPath: m_Name
@@ -1073,6 +1156,10 @@ MonoBehaviour:
   showingDamage: 0
   damageDoneTime: 0
   notifiedOfDestruction: 0
+  lifeTime: 5
+  rankPos: {x: 0, y: 0, z: 0}
+  attacking: 0
+  birthTime: 0
 --- !u!1001 &1551999460
 Prefab:
   m_ObjectHideFlags: 0
@@ -1110,7 +1197,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4239894955986386, guid: a796551ac8d598f4582c8297fb2bf3a9, type: 2}
       propertyPath: m_RootOrder
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1957086455502422, guid: a796551ac8d598f4582c8297fb2bf3a9, type: 2}
       propertyPath: m_Name
@@ -1147,6 +1234,10 @@ MonoBehaviour:
   showingDamage: 0
   damageDoneTime: 0
   notifiedOfDestruction: 0
+  lifeTime: 5
+  rankPos: {x: 0, y: 0, z: 0}
+  attacking: 0
+  birthTime: 0
 --- !u!1001 &1556533197
 Prefab:
   m_ObjectHideFlags: 0
@@ -1184,7 +1275,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4239894955986386, guid: a796551ac8d598f4582c8297fb2bf3a9, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114249938514989318, guid: a796551ac8d598f4582c8297fb2bf3a9, type: 2}
@@ -1217,6 +1308,10 @@ MonoBehaviour:
   showingDamage: 0
   damageDoneTime: 0
   notifiedOfDestruction: 0
+  lifeTime: 5
+  rankPos: {x: 0, y: 0, z: 0}
+  attacking: 0
+  birthTime: 0
 --- !u!1001 &1627926223
 Prefab:
   m_ObjectHideFlags: 0
@@ -1254,7 +1349,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4239894955986386, guid: a796551ac8d598f4582c8297fb2bf3a9, type: 2}
       propertyPath: m_RootOrder
-      value: 13
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 1957086455502422, guid: a796551ac8d598f4582c8297fb2bf3a9, type: 2}
       propertyPath: m_Name
@@ -1291,6 +1386,10 @@ MonoBehaviour:
   showingDamage: 0
   damageDoneTime: 0
   notifiedOfDestruction: 0
+  lifeTime: 5
+  rankPos: {x: 0, y: 0, z: 0}
+  attacking: 0
+  birthTime: 0
 --- !u!1001 &2060123426
 Prefab:
   m_ObjectHideFlags: 0
@@ -1328,7 +1427,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4816830932426246, guid: 0612df87cd719dc44a759b2690190d1c, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 114093839269752342, guid: 0612df87cd719dc44a759b2690190d1c,
         type: 2}

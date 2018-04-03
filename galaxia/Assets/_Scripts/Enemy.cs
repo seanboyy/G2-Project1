@@ -107,6 +107,7 @@ public class Enemy : MonoBehaviour
 
     void ShowDamage()
     {
+        Debug.Log("Showing Damage");
         foreach (Material m in materials)
         {
             m.color = Color.red;
@@ -117,6 +118,7 @@ public class Enemy : MonoBehaviour
 
     void UnShowDamage()
     {
+        Debug.Log("UnShowing Damage");
         for (int i=0; i<materials.Length; i++)
         {
             materials[i].color = originalColors[i];

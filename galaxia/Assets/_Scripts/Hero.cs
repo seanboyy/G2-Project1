@@ -59,6 +59,8 @@ public class Hero : MonoBehaviour
         // Rotate the ship to make it feel more dynamic
         transform.rotation = Quaternion.Euler(yAxis * pitchMult, xAxis * rollMult, 0);
 
+        Constants.instance.playerPos = transform.position;
+
         // Allow the ship to fire
         //if (Input.GetKeyDown(KeyCode.Space))
         //{

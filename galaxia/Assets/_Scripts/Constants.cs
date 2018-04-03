@@ -5,8 +5,18 @@ using UnityEngine.UI;
 
 public class Constants : MonoBehaviour {
 
+    // Singleton stuff
+    public static Constants instance;
+
     public Image image;
     public int playerLives = 5;
+    public Vector3 playerPos;
+
+    void Awake()
+    {
+        if (instance == null)
+            instance = this;
+    }
 
 	// Use this for initialization
 	void Start () {
