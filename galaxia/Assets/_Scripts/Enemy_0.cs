@@ -23,35 +23,14 @@ public class Enemy_0 : Enemy
         cycleTime = Time.time;
         StartCoroutine("Movement");
         oslu = new Vector3(-30, rankPos.y, rankPos.z);
-        osld = new Vector3(-30, -14, rankPos.z);
-        osrd = new Vector3(rankPos.x, -14, rankPos.z);
+        osld = new Vector3(-30, -rankPos.y, rankPos.z);
+        osrd = new Vector3(rankPos.x, -rankPos.y, rankPos.z);
         osru = new Vector3(30, rankPos.y, rankPos.z);
 	}
 
     public override void Move()
     {
-        //if (status == EnemyState.attacking)
-        //{
-        //    // Bezier curves work based on a u value between 0 & 1
-        //    float u = (Time.time - cycleTime) / lifeTime;
-        //    if (u > 1)
-        //    {
-        //        status = EnemyState.waiting;
-        //        return;
-        //    }
 
-        //    // Interpolate the three Bezier curve points
-        //    Vector3 p01, p12;
-        //    u = u - 0.2f * Mathf.Sin(u * Mathf.PI * 2);
-        //    p01 = (1 - u) * rankPos + u * Constants.instance.playerPos;
-        //    p12 = (1 - u) * Constants.instance.playerPos + u * rankPos;
-        //    pos = (1 - u) * p01 + u * p12;
-        //}
-        //else if (Random.value > 0.5f)
-        //{
-        //    status = EnemyState.attacking;
-        //    cycleTime = Time.time;
-        //}
     }
 
     IEnumerator Movement()

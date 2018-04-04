@@ -22,17 +22,18 @@ public class Player : MonoBehaviour
 	
 	void Update ()
     {
-        float movement;
+        Vector2 movement;
         if (!isRolling)
         {
-            movement = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
+            movement.x = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
+            movement.y = Input.GetAxis("Vertical") * speed * Time.deltaTime;
         }
         else
         {
-            movement = 0;
+            movement = Vector2.zero;
         }
         Vector3 pos = gameObject.transform.position;
-        gameObject.transform.position = new Vector3(pos.x + movement, pos.y, pos.z);
+        gameObject.transform.position = new Vector3(pos.x + movement.x, pos.y + movement.y, pos.z);
         if (Input.GetKeyDown(KeyCode.Q) && !isRolling)
         {
             isRolling = true;
