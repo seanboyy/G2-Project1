@@ -41,6 +41,7 @@ public class Enemy : MonoBehaviour
     public bool notifiedOfDestruction = false;
 
     protected BoundsCheck bndCheck;
+    private int testVal = 0;
 
 
     void Awake()
@@ -107,7 +108,9 @@ public class Enemy : MonoBehaviour
                     // Tell the Main singleton that this ship was destroyed
                     if (!notifiedOfDestruction)
                     {
-                       //Main.S.ShipDestroyed(this);
+                        //Main.S.ShipDestroyed(this);
+                        Constants.instance.score += score;
+                        Debug.Log("TestVal: " + testVal++);
                     }
                     notifiedOfDestruction = true;
                     // Destroy this Enemy

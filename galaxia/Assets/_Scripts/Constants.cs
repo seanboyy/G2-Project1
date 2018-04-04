@@ -11,6 +11,8 @@ public class Constants : MonoBehaviour {
     public Image image;
     public int playerLives = 5;
     public Vector3 playerPos;
+    public int score = 0;
+    public Text scoreText;
 
     void Awake()
     {
@@ -26,5 +28,7 @@ public class Constants : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         image.rectTransform.sizeDelta = new Vector2(25 * playerLives, 33);
+        if (scoreText != null)
+            scoreText.text = "SCORE: " + score;
     }
 }
