@@ -11,13 +11,18 @@ public class Constants : MonoBehaviour {
     public Image image;
     public int playerLives = 5;
     public Vector3 playerPos;
-    public int score = 0;
     public Text scoreText;
+
+    [SerializeField]
+    private int score = 0;
+    private int scoreCnt = 0;
+
 
     void Awake()
     {
         if (instance == null)
             instance = this;
+        Messenger<Enemy>.AddListener(Messages.ENEMY_DESTROYED, EnemyShipDestroyed);
     }
 
 	// Use this for initialization
@@ -30,5 +35,13 @@ public class Constants : MonoBehaviour {
         image.rectTransform.sizeDelta = new Vector2(25 * playerLives, 33);
         if (scoreText != null)
             scoreText.text = "SCORE: " + score;
+    }
+
+    void EnemyShipDestroyed(Enemy enemy)
+    {
+        Debug.Log("Constants() - score is " + enemy.score);
+        scoreCnt++;
+        Debug.Log("Constants::EnemyShipDestroyed() has been called " + scoreCnt + " times.");
+        score += enemy.score;
     }
 }

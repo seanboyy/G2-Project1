@@ -9,16 +9,19 @@ public enum EnemyState
 {
     waiting,
     rushing,    // This shall be the swooshing motion we currently have implemented
-    attacking   // this will be moving very close to the player and shooting, then return to the waiting position
+    attacking,  // this will be moving very close to the player and shooting, then return to the waiting position
+    in_squad    // enemy is in a squad and normal movement patterns are ignored. 
 }
 
-
-//tentative scores:
-//basic enemy: 100 pts
-//enemy 1: 125 pts
-//enemy 2: 150 pts
-//enemy 3: 200 pts
-//enemy 4: 500 pts
+public enum ShipRank
+{
+    enemy_0,    // The rank and file                    100 points
+    enemy_1,    // The rank and file, can shoot back    125 points
+    enemy_2,    // Squad Leaders                        150 points
+    enemy_3,    // Not implemented                      200 points
+    enemy_4,    // Not implemented                      500 points
+    NOT_CLASSIFIED  // default                          0 points
+}
 
 public class Enemy : MonoBehaviour
 {
@@ -29,8 +32,8 @@ public class Enemy : MonoBehaviour
     public int score = 100;         // Points earned for destroying this
     public float showDamageDuration = 0.1f; // # seconds to show damage
     public float powerUpDropChance = 1f;    // Chance to drop a power-up
-
     public EnemyState status = EnemyState.waiting;
+    public ShipRank rank = ShipRank.NOT_CLASSIFIED;
 
     [Header("Set Dynamically: Enemy")]
     public Color[] originalColors;
@@ -79,6 +82,7 @@ public class Enemy : MonoBehaviour
 
     public virtual void Move()
     {
+        // this should just run through whatever the current movement option is
         Vector3 tempPos = pos;
         tempPos.y -= speed * Time.deltaTime;
         pos = tempPos;
@@ -100,17 +104,15 @@ public class Enemy : MonoBehaviour
 
                 // Hurt this Enemy
                 ShowDamage();
-                // Get the damage amound from the Main WEAP_DICT
-                //health -= Main.GetWeaponDefinition(p.type).damageOnHit;
                 health--;
                 if (health <= 0)
                 {
-                    // Tell the Main singleton that this ship was destroyed
+                    // Tell the Constants singleton that this enemy was destroyed
                     if (!notifiedOfDestruction)
                     {
-                        //Main.S.ShipDestroyed(this);
-                        Constants.instance.score += score;
-                        Debug.Log("TestVal: " + testVal++);
+                        Debug.Log("Enemy() - Score is " + score);
+                        Messenger<Enemy>.Broadcast(Messages.ENEMY_DESTROYED, this);
+                        //Debug.Log("TestVal: " + testVal++);
                     }
                     notifiedOfDestruction = true;
                     // Destroy this Enemy
