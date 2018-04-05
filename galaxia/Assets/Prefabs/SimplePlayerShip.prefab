@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 4816830932426246}
   - component: {fileID: 114093839269752342}
   - component: {fileID: 114869792205236202}
-  - component: {fileID: 54975024420181364}
+  - component: {fileID: 54586600211109002}
   m_Layer: 8
   m_Name: SimplePlayerShip
   m_TagString: Player
@@ -217,7 +217,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1289939832317400}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!54 &54975024420181364
+--- !u!54 &54586600211109002
 Rigidbody:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}

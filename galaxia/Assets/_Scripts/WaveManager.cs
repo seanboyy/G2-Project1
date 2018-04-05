@@ -10,12 +10,16 @@ public class WaveManager : MonoBehaviour
     [Header("Set Dynamically")]
     public int enemiesAlive = 0;
 
+    private int row = 0;
+    private int rowIncrement = 8;
+
     // Some constants to help make rows
 
 	// Use this for initialization
 	void Start ()
     {
-		
+        for (int i = 0; i < enemies.Length; i++)
+            SpawnRank(enemies[i]);
 	}
 	
 	// Update is called once per frame
@@ -24,7 +28,7 @@ public class WaveManager : MonoBehaviour
 		
 	}
 
-    void SpawnRank(GameObject enemyGO)
+    public void SpawnRank(GameObject enemyGO)
     {
         Enemy enemy = enemyGO.GetComponent<Enemy>();
         if (enemy == null) return;
@@ -53,6 +57,7 @@ public class WaveManager : MonoBehaviour
         int i;
         if (enemiesPerRow % 2 != 0)
         {
+            Debug.Log("doing weird odd stuff");
             i = -enemiesPerRow / 2;
             enemiesPerRow /= 2;
         }
@@ -60,7 +65,10 @@ public class WaveManager : MonoBehaviour
             i = 0;
         for (; i <= enemiesPerRow; i++)
         {
-            Instantiate(enemyGO, new Vector3(), new Quaternion());
+            Debug.Log(i);
+            Vector3 rankPos = new Vector3(i * enemySpacing, row, 0);
+            Instantiate(enemyGO, rankPos, new Quaternion()).GetComponent<Enemy_0>().rankPos = rankPos;
         }
+        row += rowIncrement;
     }
 }
