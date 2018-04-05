@@ -7,7 +7,9 @@ public class Player : MonoBehaviour
     [Header("Movement")]
     public float speed = 10f;
     public float rotationSpeed = 10F;
-    
+    public float rollMult = -45;
+    public float pitchMult = 30;
+
     private bool isRolling = false; 
     
     [Header("Shooting")]
@@ -34,6 +36,10 @@ public class Player : MonoBehaviour
         }
         Vector3 pos = gameObject.transform.position;
         gameObject.transform.position = new Vector3(pos.x + movement.x, pos.y + movement.y, pos.z);
+
+        // Rotate the ship to make it feel more dynamic
+        transform.rotation = Quaternion.Euler(movement.y * pitchMult, movement.x * rollMult, 0);
+
         if (Input.GetKeyDown(KeyCode.Q) && !isRolling)
         {
             isRolling = true;
