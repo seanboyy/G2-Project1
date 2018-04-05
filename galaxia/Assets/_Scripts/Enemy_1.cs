@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Enemy_1 : Enemy_0
 {
+    
+    public GameObject projectilePrefab;
+    public float projectileSpeed;
 
     // Use this for initialization
     void Start()
@@ -11,83 +14,33 @@ public class Enemy_1 : Enemy_0
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public override void Move()
-    { // this variable is used to keep track of movement cycles for Bezier curves. 
-        // TO-DO: refactor variable name; write better comment. 
-        float u;
-
+    {
         switch (status)
         {
-            case EnemyState.rushing:    // Enemies approach do not engage with player
-                //Debug.Log("Enemy Status - Rushing");
-                // Bezier curves work based on a u value between 0 & 1
-                u = (Time.time - cycleTime) / speed;
-                if (u > 1)
-                {
-                    status = EnemyState.waiting;
-                    break;
-                }
-                // Interpolate the three Bezier curve points
-                Vector3 p01, p12;
-                u = u - 0.2f * Mathf.Sin(u * Mathf.PI * 2);
-                p01 = (1 - u) * rankPos + u * Constants.instance.playerPos;
-                p12 = (1 - u) * Constants.instance.playerPos + u * rankPos;
-                pos = (1 - u) * p01 + u * p12;
-                break;
             case EnemyState.attacking:
-                //Debug.Log("Enemy Status - Attacking");
-                u = 4 * (Time.time - cycleTime) / speed;
-                // Move enemy off screen left
-                if (u < 1)
+                if (!attacking)
                 {
-                    pos = ((1 - u) * rankPos) + (u * upperOffScreenLeft);
+                    attacking = true;
+                    int times = Random.Range(2, 5);
+                    StartCoroutine(Fire(times));
                 }
-                // Move enemy to the opposite of it's rankPos
-                if (u >= 1 && u < 2)
-                {
-                    // Makue u < 1
-                    u = u - 1;
-                    pos = ((1 - u) * upperOffScreenLeft) + (u * lowerRankPos);
-                }
-                // Move enemy off screen right
-                if (u >= 2 && u < 3)
-                {
-                    // Makue u < 1
-                    u = u - 2;
-                    pos = ((1 - u) * lowerRankPos) + (u * upperOffScreenRight);
-                }
-                // Return to rankPos
-                if (u >= 3 && u < 4)
-                {
-                    // Makue u < 1
-                    u = u - 3;
-                    pos = ((1 - u) * upperOffScreenRight) + (u * rankPos);
-                }
-                if (u >= 4)
-                {
-                    status = EnemyState.waiting;
-                }
-
-                break;
-            case EnemyState.in_squad:
-                Debug.Log("Not Implemented");
-                break;
-            case EnemyState.waiting:
-                if (Random.value <= 0.5f)
-                    status = EnemyState.rushing;
-                else
-                    status = EnemyState.attacking;
-                cycleTime = Time.time;
+                base.Move();
                 break;
             default:
                 base.Move();
                 break;
         }
+    }
+
+    IEnumerator Fire(int times)
+    {
+        for(int i = 0; i < times; ++i)
+        {
+            Instantiate(projectilePrefab, gameObject.transform.position, new Quaternion()).GetComponent<Rigidbody>().velocity = Vector3.down * projectileSpeed;
+            yield return new WaitForSeconds(fireRate);
+        }
+        attacking = false;
+        yield return null;
     }
 }
