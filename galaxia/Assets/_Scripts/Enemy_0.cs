@@ -55,6 +55,7 @@ public class Enemy_0 : Enemy
             case EnemyState.attacking:
                 //Debug.Log("Enemy Status - Attacking");
                 u = 4 * (Time.time - cycleTime) / speed;
+                Debug.Log(u);
                 // Move enemy off screen left
                 if (u < 1)
                 {
