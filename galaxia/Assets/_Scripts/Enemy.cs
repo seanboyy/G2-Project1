@@ -10,7 +10,8 @@ public enum EnemyState
     waiting,
     rushing,    // This shall be the swooshing motion we currently have implemented
     attacking,  // this will be moving very close to the player and shooting, then return to the waiting position
-    in_squad    // enemy is in a squad and normal movement patterns are ignored. 
+    in_squad,   // enemy is in a squad and normal movement patterns are ignored. 
+    dying       // enemy be deading
 }
 
 public enum ShipRank
@@ -41,7 +42,6 @@ public class Enemy : MonoBehaviour
     public bool showingDamage = false;
     public float damageDoneTime;    // Time to stop showing damage
     public GameObject scoreFloatText;
-    public bool notifiedOfDestruction = false;
 
     protected BoundsCheck bndCheck;
     private int testVal = 0;
@@ -82,7 +82,7 @@ public class Enemy : MonoBehaviour
 
     public virtual void Move()
     {
-        // this should just run through whatever the current movement option is
+        if (status == EnemyState.dying) return; // do not move if you are dying
         Vector3 tempPos = pos;
         tempPos.y -= speed * Time.deltaTime;
         pos = tempPos;
@@ -90,6 +90,9 @@ public class Enemy : MonoBehaviour
 
     void OnCollisionEnter(Collision coll)
     {
+        // do nothing if this enemy is dying
+        if (status == EnemyState.dying) return;
+
         GameObject otherGO = coll.gameObject;
         switch (otherGO.tag)
         {
@@ -101,23 +104,13 @@ public class Enemy : MonoBehaviour
                     Destroy(otherGO);
                     break;
                 }
-
                 // Hurt this Enemy
                 ShowDamage();
+                // This line should be replaced if we allow for damage based on projectile type
                 health--;
                 if (health <= 0)
                 {
-                    // Tell the Constants singleton that this enemy was destroyed
-                    if (!notifiedOfDestruction)
-                    {
-                        Debug.Log("Enemy() - Score is " + score);
-                        Messenger<Enemy>.Broadcast(Messages.ENEMY_DESTROYED, this);
-                        //Debug.Log("TestVal: " + testVal++);
-                    }
-                    notifiedOfDestruction = true;
-                    // Destroy this Enemy
-                    Instantiate(scoreFloatText).GetComponent<ScoreFloatText>().InitializeText("+" + score, gameObject.transform.position, Color.blue);
-                    Destroy(this.gameObject);
+                    StartCoroutine("Dying");
                 }
                 Destroy(otherGO);
                 break;
@@ -146,5 +139,21 @@ public class Enemy : MonoBehaviour
             materials[i].color = originalColors[i];
         }
         showingDamage = false;
+    }
+
+    // This is a coroutine so we can play sounds or whatever if necessary later on
+    IEnumerator Dying()
+    {
+        // notify constants (and anyone else who cares) that this enemy died
+        if (status != EnemyState.dying) Messenger<Enemy>.Broadcast(Messages.ENEMY_DESTROYED, this);
+
+        // set the status to dying
+        status = EnemyState.dying;
+        Instantiate(scoreFloatText).GetComponent<ScoreFloatText>().InitializeText("+" + score, gameObject.transform.position, Color.blue);
+        
+        // Destroy this Enemy
+        Destroy(this.gameObject);
+
+        yield return null;
     }
 }
