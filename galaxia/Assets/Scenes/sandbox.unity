@@ -217,13 +217,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-<<<<<<< HEAD
-    - target: {fileID: 1913928980702316, guid: 0612df87cd719dc44a759b2690190d1c, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-=======
->>>>>>> bc0035cf588e0485f9b7078ab76acb19f97dad0f
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0612df87cd719dc44a759b2690190d1c, type: 2}
   m_IsPrefabParent: 0
@@ -769,7 +762,6 @@ MonoBehaviour:
   - {fileID: 1098451645789946, guid: 1175328a2ace05349ab967f8fbdcd6d4, type: 2}
   - {fileID: 1606155314395138, guid: 7a82486152bcb7643918987133d8cc9a, type: 2}
   enemiesAlive: 0
-<<<<<<< HEAD
   row: 10
   rowIncrement: 6
 --- !u!1 &1846022885 stripped
@@ -792,8 +784,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 120
   m_CollisionDetection: 0
-=======
->>>>>>> bc0035cf588e0485f9b7078ab76acb19f97dad0f
 --- !u!1 &1878942925
 GameObject:
   m_ObjectHideFlags: 0
