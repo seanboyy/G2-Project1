@@ -2,35 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy_0 : Enemy
+public class Enemy_1 : Enemy_0
 {
-    [Header("Set Dynamically: Enemy_0")]
-    public Vector3 rankPos;
-    public bool attacking;
-    public float cycleTime;
-
-    // Vectors for attacking. 
-    protected Vector3 upperOffScreenLeft, lowerRankPos, upperOffScreenRight;
-
 
     // Use this for initialization
-    void Start ()
+    void Start()
     {
-        // start the first movement cycle
-        cycleTime = Time.time;
-        // correctly assign the ship's rank
-        rank = ShipRank.enemy_0;
 
-        // Set up positioning things
-        rankPos = pos;
-        upperOffScreenLeft = new Vector3(-30, rankPos.y, rankPos.z);
-        lowerRankPos = new Vector3(rankPos.x, -rankPos.y, rankPos.z);
-        upperOffScreenRight = new Vector3(30, rankPos.y, rankPos.z);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
     }
 
     public override void Move()
-    {
-        // this variable is used to keep track of movement cycles for Bezier curves. 
+    { // this variable is used to keep track of movement cycles for Bezier curves. 
         // TO-DO: refactor variable name; write better comment. 
         float u;
 
