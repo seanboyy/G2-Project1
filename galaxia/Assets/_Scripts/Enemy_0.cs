@@ -54,19 +54,15 @@ public class Enemy_0 : Enemy
                     pos = (1 - u) * p01 + u * p12;
                     break;
                 case EnemyState.attacking:
-                    Debug.Log("Enemy_0.Move() : status = attacking");
                     u = 4 * (Time.time - cycleTime) / speed;
-                    Debug.Log(u);
                     // Move enemy off screen left
                     if (u < 1)
                     {
-                        Debug.Log("Enemy_0.Move() : status = attacking : Phase 1");
                         pos = ((1 - u) * rankPos) + (u * upperOffScreenLeft);
                     }
                     // Move enemy to the opposite of its rankPos
                     if (u >= 1 && u < 2)
                     {
-                        Debug.Log("Enemy_0.Move() : status = attacking : Phase 2");
                         // Makue u < 1
                         u = u - 1;
                         pos = ((1 - u) * upperOffScreenLeft) + (u * lowerRankPos);
@@ -74,7 +70,6 @@ public class Enemy_0 : Enemy
                     // Move enemy off screen right
                     if (u >= 2 && u < 3)
                     {
-                        Debug.Log("Enemy_0.Move() : status = attacking : Phase 3");
                         // Makue u < 1
                         u = u - 2;
                         pos = ((1 - u) * lowerRankPos) + (u * upperOffScreenRight);
@@ -82,20 +77,17 @@ public class Enemy_0 : Enemy
                     // Return to rankPos
                     if (u >= 3 && u < 4)
                     {
-                        Debug.Log("Enemy_0.Move() : status = attacking : Phase 4");
                         // Makue u < 1
                         u = u - 3;
                         pos = ((1 - u) * upperOffScreenRight) + (u * rankPos);
                     }
                     if (u >= 4)
                     {
-                        Debug.Log("Enemy_0.Move() : status = attacking : Ending");
                         status = EnemyState.waiting;
                     }
 
                     break;
                 case EnemyState.in_squad:
-                    Debug.Log("Not Implemented");
                     break;
                 case EnemyState.waiting:
                     if(Random.Range(0F, 1F) <= 0.5F)

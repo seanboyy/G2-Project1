@@ -246,6 +246,8 @@ MonoBehaviour:
   speed: 10
   fireRate: 0.3
   health: 5
+  orbitSpeed: 2
+  orbitDistance: 10
   score: 100
   showDamageDuration: 0.1
   powerUpDropChance: 1
@@ -258,6 +260,7 @@ MonoBehaviour:
   scoreFloatText: {fileID: 1782784489030068, guid: f0eef297eb3e7604a9ec010f36af7557,
     type: 2}
   isMinion: 0
+  masterPos: {x: 0, y: 0, z: 0}
   rankPos: {x: 0, y: 0, z: 0}
   firing: 0
   cycleTime: 0
