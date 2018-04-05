@@ -14,7 +14,7 @@ public class WaveManager : MonoBehaviour
     private int e0pRow = 7;
     private int e0spacing = 6; 
     private int e1pRow = 5;
-    private int e1spacing = 0;
+    private int e1spacing = 8;
     private int e2pRos = 1;
 
 	// Use this for initialization
