@@ -90,6 +90,19 @@ public class Player : MonoBehaviour
     void OnCollisionEnter(Collision coll)
     {
         GameObject otherGO = coll.gameObject;
+        if (otherGO.tag == "ProjectileEnemy")
+        {
+            Destroy(otherGO);
+            DoDeathSequence();
+        }
+        else
+        {
+        }
+    }
 
+    void DoDeathSequence()
+    {
+        Destroy(gameObject);
+        Messenger.Broadcast(Messages.PLAYER_DESTROYED);
     }
 }

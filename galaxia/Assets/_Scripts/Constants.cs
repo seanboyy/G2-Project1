@@ -11,19 +11,29 @@ public class Constants : MonoBehaviour {
     public bool testMode = false;
 
     public Image image;
-    public int playerLives = 5;
+    private int playerLives = 5;
     public Vector3 playerPos;
     public Text scoreText;
 
     [SerializeField]
     private int score = 0;
 
+    public int GetPlayerLives()
+    {
+        return playerLives;
+    }
+
+    public void SetPlayerLives(int lives)
+    {
+        playerLives = lives;
+    }
 
     void Awake()
     {
         if (instance == null)
             instance = this;
         Messenger<Enemy>.AddListener(Messages.ENEMY_DESTROYED, EnemyShipDestroyed);
+        Messenger.AddListener(Messages.PLAYER_DESTROYED, PlayerShipDestroyed);
     }
 
 	// Use this for initialization
@@ -45,7 +55,12 @@ public class Constants : MonoBehaviour {
         score += enemy.score;
     }
 
-    public int getScore()
+    void PlayerShipDestroyed()
+    {
+        playerLives--;
+    }
+
+    public int GetScore()
     {
         return score;
     }

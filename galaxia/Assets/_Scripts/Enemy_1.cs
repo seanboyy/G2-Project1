@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class Enemy_1 : Enemy_0
 {
-    
+
     public GameObject projectilePrefab;
     public float projectileSpeed;
 
     // Use this for initialization
     void Start()
     {
-
+        cycleTime = Time.time;
+        rank = ShipRank.enemy_1;
     }
 
     public override void Move()
@@ -19,15 +20,16 @@ public class Enemy_1 : Enemy_0
         switch (status)
         {
             case EnemyState.attacking:
-                if (!attacking)
+                if (!firing)
                 {
-                    attacking = true;
+                    firing = true;
                     int times = Random.Range(2, 5);
                     StartCoroutine(Fire(times));
                 }
                 base.Move();
                 break;
             default:
+                firing = false;
                 base.Move();
                 break;
         }
@@ -35,12 +37,11 @@ public class Enemy_1 : Enemy_0
 
     IEnumerator Fire(int times)
     {
-        for(int i = 0; i < times; ++i)
+        for (int i = 0; i < times; ++i)
         {
             Instantiate(projectilePrefab, gameObject.transform.position, new Quaternion()).GetComponent<Rigidbody>().velocity = Vector3.down * projectileSpeed;
             yield return new WaitForSeconds(fireRate);
         }
-        attacking = false;
         yield return null;
     }
 }

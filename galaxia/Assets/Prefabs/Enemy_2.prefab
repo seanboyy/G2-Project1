@@ -182,7 +182,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 467932a679b34164ab67bacaa19b3509, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -216,7 +216,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 4f2d53803bfd55540ae59a0cd6556796, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -250,7 +250,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 3f57806d6e8a97a4685a268e37eb531c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -324,13 +324,13 @@ MonoBehaviour:
   showDamageDuration: 0.1
   powerUpDropChance: 1
   status: 0
+  rank: 5
   originalColors: []
   materials: []
   showingDamage: 0
   damageDoneTime: 0
   scoreFloatText: {fileID: 1782784489030068, guid: f0eef297eb3e7604a9ec010f36af7557,
     type: 2}
-  notifiedOfDestruction: 0
 --- !u!135 &135307387725096882
 SphereCollider:
   m_ObjectHideFlags: 1
