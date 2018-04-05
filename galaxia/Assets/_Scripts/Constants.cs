@@ -44,4 +44,9 @@ public class Constants : MonoBehaviour {
         Debug.Log("Constants::EnemyShipDestroyed() has been called " + scoreCnt + " times.");
         score += enemy.score;
     }
+
+    public int getScore()
+    {
+        return score;
+    }
 }

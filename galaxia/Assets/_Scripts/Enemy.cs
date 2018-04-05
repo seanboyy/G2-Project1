@@ -44,8 +44,6 @@ public class Enemy : MonoBehaviour
     public GameObject scoreFloatText;
 
     protected BoundsCheck bndCheck;
-    private int testVal = 0;
-
 
     void Awake()
     {
@@ -78,6 +76,9 @@ public class Enemy : MonoBehaviour
         {
             UnShowDamage();
         }
+
+        if (status != EnemyState.dying && health <= 0)
+            StartCoroutine("Dying");
 	}
 
     public virtual void Move()
@@ -108,10 +109,6 @@ public class Enemy : MonoBehaviour
                 ShowDamage();
                 // This line should be replaced if we allow for damage based on projectile type
                 health--;
-                if (health <= 0)
-                {
-                    StartCoroutine("Dying");
-                }
                 Destroy(otherGO);
                 break;
             default:

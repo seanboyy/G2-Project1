@@ -10,7 +10,7 @@ public class Enemy_0 : Enemy
     public float cycleTime;
 
     // Vectors for attacking. 
-    private Vector3 upperOffScreenLeft, lowerRankPos, upperOffScreenRight;
+    private Vector3 upperOffScreenLeft, lowerRankPos, upperOffScreenRight, rushPos;
 
 
     // Use this for initialization
@@ -48,8 +48,8 @@ public class Enemy_0 : Enemy
                 // Interpolate the three Bezier curve points
                 Vector3 p01, p12;
                 u = u - 0.2f * Mathf.Sin(u * Mathf.PI * 2);
-                p01 = (1 - u) * rankPos + u * Constants.instance.playerPos;
-                p12 = (1 - u) * Constants.instance.playerPos + u * rankPos;
+                p01 = (1 - u) * rankPos + u * rushPos;
+                p12 = (1 - u) * rushPos + u * rankPos;
                 pos = (1 - u) * p01 + u * p12;
                 break;
             case EnemyState.attacking:
@@ -92,7 +92,10 @@ public class Enemy_0 : Enemy
                 break;
             case EnemyState.waiting:
                 if (Random.value <= 0.5f)
+                {
                     status = EnemyState.rushing;
+                    rushPos = Constants.instance.playerPos;
+                }
                 else
                     status = EnemyState.attacking;
                 cycleTime = Time.time;
