@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class Enemy_2 : Enemy_0
 {
+    [Header("Set in Inspector - Enemy_2")]
+    public int spacing = 33;
+    public float orbitingSpeed = 1f;
+    public float orbitRadius = 10f;
+
     [Header("Set Dynamically - Enemy_2")]
     public GameObject[] minions = new GameObject[4];
     public int numMinions = 0;
@@ -11,8 +16,10 @@ public class Enemy_2 : Enemy_0
     public GameObject particleLaserCharging;
     public GameObject laser;
 
-	// Use this for initialization
-	void Start ()
+    private float orb;
+
+    // Use this for initialization
+    void Start ()
     {
         StartCoroutine("Charging");
         laser.SetActive(false);
@@ -20,41 +27,40 @@ public class Enemy_2 : Enemy_0
 
     public override void Move()
     {
-        switch(status)
+        RaycastHit[] raycastHits = Physics.SphereCastAll(pos, 8, Vector3.down);
+        switch (status)
         {
             case EnemyState.waiting:
                 // move back and forth around the top of the screen...ominously - follow the player
-                if (Constants.instance.playerPos.x > pos.x) // move right
-                    pos = new Vector3(pos.x + (speed / 2 * Time.deltaTime), pos.y, pos.z);
-                else    // move left
-                    pos = new Vector3(pos.x - (speed / 2 * Time.deltaTime), pos.y, pos.z);
-                foreach (GameObject minion in minions)
+                bool noMove = false;
+                for (int k = 0; k < raycastHits.Length; ++k)
                 {
-                    if (minion != null)
-                    {
-                        minion.GetComponent<Enemy>().masterPos = pos;
-                    }
+                    if (raycastHits[k].collider.gameObject.GetComponent<Enemy>() != null && raycastHits[k].collider.gameObject.GetComponent<Enemy>().rank == ShipRank.enemy_2)
+                        noMove = true;
                 }
+
+                if (!noMove && Constants.instance.playerPos.x > pos.x) // move right
+                    pos = new Vector3(pos.x + (speed / 2 * Time.deltaTime), pos.y, pos.z);
+                else if (!noMove)   // move left
+                    pos = new Vector3(pos.x - (speed / 2 * Time.deltaTime), pos.y, pos.z);
                 break;
             case EnemyState.charging:
-                for(int i = 0; i < minions.Length; ++i)
+                // move the minions
+                numMinions = 0;
+                for (int i = 0; i < minions.Length; i++)
                 {
-                    if(minions[i] == null)
+                    GameObject minion = minions[i];
+                    if (minion != null)
                     {
-                        if (numMinions > 0) --numMinions;
-                        RaycastHit[] raycastHits = Physics.SphereCastAll(pos, 50F, Vector3.down);
-                        for (int k = 0; k < raycastHits.Length; ++k)
-                        {
-                            if (!raycastHits[k].collider.gameObject.name.Contains("Enemy_2") && raycastHits[k].collider.gameObject.tag == "Enemy" && !raycastHits[k].collider.gameObject.GetComponent<Enemy>().isMinion)
-                            {
-                                minions[i] = raycastHits[k].collider.gameObject;
-                                raycastHits[k].collider.gameObject.GetComponent<Enemy>().isMinion = true;
-                                raycastHits[k].collider.gameObject.GetComponent<Enemy>().masterPos = pos;
-                                ++numMinions;
-                                break;
-                            }
-                        }
+                        // move them minions here
+                        orb += Time.deltaTime * orbitingSpeed;
+                        Vector3 sqlPos = gameObject.transform.position;
+                        minion.GetComponent<Enemy>().pos = new Vector3(sqlPos.x + Mathf.Sin(orb + (spacing * i)) * orbitRadius, 
+                                                                        sqlPos.y + Mathf.Cos(orb + (spacing * i)) * orbitRadius, 
+                                                                        sqlPos.z);
+                        numMinions++;
                     }
+                    
                 }
                 break;
             case EnemyState.attacking:
@@ -74,12 +80,24 @@ public class Enemy_2 : Enemy_0
             status = EnemyState.charging;
             particleLaserCharging.GetComponent<ParticleSystem>().Play();
             // grab minions
-            if (isMinion) isMinion = false;
-            foreach (GameObject minion in minions)
+            if (status == EnemyState.in_squad) status = EnemyState.charging;
+            RaycastHit[] raycastHits = Physics.SphereCastAll(pos, 50, Vector3.down);
+            for (int i = 0; i < minions.Length; ++i)
             {
-                if (minion != null)
+                if (minions[i] == null)
                 {
-                    minion.GetComponent<Enemy>().masterPos = pos;
+                    for (int k = 0; k < raycastHits.Length; ++k)
+                    {
+                        GameObject kGO = raycastHits[k].collider.gameObject;
+                        if (kGO.GetComponent<Enemy>() == null) continue;
+                        if (!(kGO.GetComponent<Enemy>().rank == ShipRank.enemy_2) && !(kGO.GetComponent<Enemy>().status == EnemyState.in_squad))
+                        {
+                            minions[i] = raycastHits[k].collider.gameObject;
+                            raycastHits[k].collider.gameObject.GetComponent<Enemy>().status = EnemyState.in_squad;
+                            ++numMinions;
+                            break;
+                        }
+                    }
                 }
             }
             yield return new WaitForSeconds(5);
@@ -99,7 +117,6 @@ public class Enemy_2 : Enemy_0
         {
             if (minion != null)
             {
-                minion.GetComponent<Enemy>().isMinion = false;
                 minion.GetComponent<Enemy>().status = EnemyState.rushing;
             }
         }

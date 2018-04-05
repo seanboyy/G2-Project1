@@ -53,7 +53,7 @@ public class WaveManager : MonoBehaviour
                 break;
             case ShipRank.enemy_2:
                 enemiesPerRow = 1 + 2 * Constants.instance.GetWavesCleared();
-                enemySpacing = 15;
+                enemySpacing = 20;
                 break;
             case ShipRank.NOT_CLASSIFIED:
                 //Debug.Log("Using ship where rank is not classified");

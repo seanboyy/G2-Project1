@@ -43,8 +43,7 @@ public class Enemy : MonoBehaviour
     public bool showingDamage = false;
     public float damageDoneTime;    // Time to stop showing damage
     public GameObject scoreFloatText;
-    public bool isMinion = false;
-    public Vector3 masterPos;
+    //public Vector3 masterPos;
 
     protected BoundsCheck bndCheck;
 

@@ -82,6 +82,14 @@ public class Constants : MonoBehaviour {
     void WavesClearedCounter()
     {
         wavesCleared++;
+        playerLives++;
+        //int a;
+        //a = playerLives;
+        //int b;
+        //b = 1;
+        //int c;
+        //c = a + b;
+        //playerLives = c;
     }
 
     void PlayerShipDestroyed()

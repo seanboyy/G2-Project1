@@ -17,28 +17,21 @@ public class Enemy_1 : Enemy_0
 
     public override void Move()
     {
-        if (!isMinion)
+        switch (status)
         {
-            switch (status)
-            {
-                case EnemyState.attacking:
-                    if (!firing)
-                    {
-                        firing = true;
-                        int times = Random.Range(2, 5);
-                        StartCoroutine(Fire(times));
-                    }
-                    base.Move();
-                    break;
-                default:
-                    firing = false;
-                    base.Move();
-                    break;
-            }
-        }
-        else
-        {
-            base.Move();
+            case EnemyState.attacking:
+                if (!firing)
+                {
+                    firing = true;
+                    int times = Random.Range(2, 5);
+                    StartCoroutine(Fire(times));
+                }
+                base.Move();
+                break;
+            default:
+                firing = false;
+                base.Move();
+                break;
         }
     }
 

@@ -30,9 +30,16 @@ public class Galaxya_SM : WytriamSTD.Scene_Manager {
     {
         if (Constants.instance.GetNumEnemies() <= 0)
         {
-            announce("WAVE CLEAR");
-            Messenger.Broadcast(Messages.WAVE_CLEAR);
+            StartCoroutine("NewWave");
         }
+    }
+
+    IEnumerator NewWave()
+    {
+        announce("WAVE CLEAR");
+        yield return new WaitForSeconds(3);
+        Messenger.Broadcast(Messages.WAVE_CLEAR);
+        yield return null;
     }
 
     void SpawnPlayer()

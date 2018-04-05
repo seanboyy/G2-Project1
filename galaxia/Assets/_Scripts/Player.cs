@@ -11,6 +11,8 @@ public class Player : MonoBehaviour
     public float pitchMult = 30;
 
     private bool isRolling = false;
+    private bool killPlayer = false;
+    private bool stopEverything = false;
 
     [Header("Shooting")]
     public GameObject projectilePrefab;
@@ -38,6 +40,10 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        if (stopEverything) return;
+        if (killPlayer)
+            DoDeathSequence();
+
         if (isInvulnerable)
         {
             StartCoroutine("InvulnerableCooldown");
@@ -116,13 +122,13 @@ public class Player : MonoBehaviour
         if (otherGO.tag == "ProjectileEnemy")
         {
             Destroy(otherGO);
-            if (!isRolling && !isInvulnerable) DoDeathSequence();
+            if (!isRolling && !isInvulnerable) killPlayer = true;
         }
         else if (otherGO.tag == "Enemy")
         {
             otherGO.GetComponent<Enemy>().score = 0;
             otherGO.GetComponent<Enemy>().StartCoroutine("Dying");
-            if (!isInvulnerable) DoDeathSequence();
+            if (!isInvulnerable) killPlayer = true;
         }
         else
         {
@@ -135,12 +141,13 @@ public class Player : MonoBehaviour
         GameObject otherGO = other.gameObject;
         if (otherGO.tag == "Laser")
         {
-            if (!isInvulnerable) DoDeathSequence();
+            if (!isInvulnerable) killPlayer = true;
         }
     }
 
     void DoDeathSequence()
     {
+        stopEverything = true;
         Destroy(gameObject);
         Messenger.Broadcast(Messages.PLAYER_DESTROYED);
     }
