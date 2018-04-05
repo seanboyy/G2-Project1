@@ -6,6 +6,7 @@ public class Enemy_2 : Enemy_0
 {
     [Header("Set Dynamically - Enemy_2")]
     public GameObject[] minions = new GameObject[4];
+    public int numMinions = 0;
 
     public GameObject particleLaserCharging;
     public GameObject laser;
@@ -14,6 +15,7 @@ public class Enemy_2 : Enemy_0
 	void Start ()
     {
         laser.SetActive(false);
+        StartCoroutine("Charging");
 	}
 
     public override void Move()
@@ -38,9 +40,15 @@ public class Enemy_2 : Enemy_0
 
     IEnumerator Charging()
     {
+        yield return new WaitForSeconds(5);
         status = EnemyState.charging;
         particleLaserCharging.GetComponent<ParticleSystem>().Play();
-        yield return null;
+        // grab minions
+        yield return new WaitForSeconds(5);
+        // fire laser
+        particleLaserCharging.GetComponent<ParticleSystem>().Stop();
+        laser.SetActive(true);
+        laser.transform.localScale = new Vector3(1 + numMinions, laser.transform.localScale.y, laser.transform.localScale.z);
     }
 
 }
