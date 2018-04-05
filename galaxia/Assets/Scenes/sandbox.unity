@@ -221,6 +221,11 @@ Prefab:
       propertyPath: m_Name
       value: Enemy_0 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 114802109495268380, guid: a796551ac8d598f4582c8297fb2bf3a9,
+        type: 2}
+      propertyPath: health
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a796551ac8d598f4582c8297fb2bf3a9, type: 2}
   m_IsPrefabParent: 0
@@ -267,6 +272,11 @@ Prefab:
       propertyPath: m_Name
       value: Enemy_0 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 114802109495268380, guid: a796551ac8d598f4582c8297fb2bf3a9,
+        type: 2}
+      propertyPath: health
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: a796551ac8d598f4582c8297fb2bf3a9, type: 2}
@@ -294,14 +304,13 @@ MonoBehaviour:
   showDamageDuration: 0.1
   powerUpDropChance: 1
   status: 0
+  rank: 5
   originalColors: []
   materials: []
   showingDamage: 0
   damageDoneTime: 0
   scoreFloatText: {fileID: 1782784489030068, guid: f0eef297eb3e7604a9ec010f36af7557,
     type: 2}
-  notifiedOfDestruction: 0
-  moveSpeed: 5
   rankPos: {x: 0, y: 0, z: 0}
   attacking: 0
   cycleTime: 0
@@ -348,6 +357,11 @@ Prefab:
       propertyPath: m_Name
       value: Enemy_0 (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 114802109495268380, guid: a796551ac8d598f4582c8297fb2bf3a9,
+        type: 2}
+      propertyPath: health
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: a796551ac8d598f4582c8297fb2bf3a9, type: 2}
@@ -375,14 +389,13 @@ MonoBehaviour:
   showDamageDuration: 0.1
   powerUpDropChance: 1
   status: 0
+  rank: 5
   originalColors: []
   materials: []
   showingDamage: 0
   damageDoneTime: 0
   scoreFloatText: {fileID: 1782784489030068, guid: f0eef297eb3e7604a9ec010f36af7557,
     type: 2}
-  notifiedOfDestruction: 0
-  moveSpeed: 5
   rankPos: {x: 0, y: 0, z: 0}
   attacking: 0
   cycleTime: 0
@@ -429,6 +442,11 @@ Prefab:
       propertyPath: m_Name
       value: Enemy_0 (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 114802109495268380, guid: a796551ac8d598f4582c8297fb2bf3a9,
+        type: 2}
+      propertyPath: health
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: a796551ac8d598f4582c8297fb2bf3a9, type: 2}
@@ -456,14 +474,13 @@ MonoBehaviour:
   showDamageDuration: 0.1
   powerUpDropChance: 1
   status: 0
+  rank: 5
   originalColors: []
   materials: []
   showingDamage: 0
   damageDoneTime: 0
   scoreFloatText: {fileID: 1782784489030068, guid: f0eef297eb3e7604a9ec010f36af7557,
     type: 2}
-  notifiedOfDestruction: 0
-  moveSpeed: 5
   rankPos: {x: 0, y: 0, z: 0}
   attacking: 0
   cycleTime: 0
@@ -657,6 +674,11 @@ Prefab:
       propertyPath: m_Name
       value: Enemy_0 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 114802109495268380, guid: a796551ac8d598f4582c8297fb2bf3a9,
+        type: 2}
+      propertyPath: health
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: a796551ac8d598f4582c8297fb2bf3a9, type: 2}
@@ -684,14 +706,13 @@ MonoBehaviour:
   showDamageDuration: 0.1
   powerUpDropChance: 1
   status: 0
+  rank: 5
   originalColors: []
   materials: []
   showingDamage: 0
   damageDoneTime: 0
   scoreFloatText: {fileID: 1782784489030068, guid: f0eef297eb3e7604a9ec010f36af7557,
     type: 2}
-  notifiedOfDestruction: 0
-  moveSpeed: 5
   rankPos: {x: 0, y: 0, z: 0}
   attacking: 0
   cycleTime: 0
@@ -893,6 +914,11 @@ Prefab:
       propertyPath: m_Name
       value: Enemy_0 (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 114802109495268380, guid: a796551ac8d598f4582c8297fb2bf3a9,
+        type: 2}
+      propertyPath: health
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: a796551ac8d598f4582c8297fb2bf3a9, type: 2}
@@ -920,14 +946,13 @@ MonoBehaviour:
   showDamageDuration: 0.1
   powerUpDropChance: 1
   status: 0
+  rank: 5
   originalColors: []
   materials: []
   showingDamage: 0
   damageDoneTime: 0
   scoreFloatText: {fileID: 1782784489030068, guid: f0eef297eb3e7604a9ec010f36af7557,
     type: 2}
-  notifiedOfDestruction: 0
-  moveSpeed: 5
   rankPos: {x: 0, y: 0, z: 0}
   attacking: 0
   cycleTime: 0
@@ -974,6 +999,11 @@ Prefab:
       propertyPath: m_Name
       value: Enemy_0 (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 114802109495268380, guid: a796551ac8d598f4582c8297fb2bf3a9,
+        type: 2}
+      propertyPath: health
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: a796551ac8d598f4582c8297fb2bf3a9, type: 2}
@@ -1001,14 +1031,13 @@ MonoBehaviour:
   showDamageDuration: 0.1
   powerUpDropChance: 1
   status: 0
+  rank: 5
   originalColors: []
   materials: []
   showingDamage: 0
   damageDoneTime: 0
   scoreFloatText: {fileID: 1782784489030068, guid: f0eef297eb3e7604a9ec010f36af7557,
     type: 2}
-  notifiedOfDestruction: 0
-  moveSpeed: 5
   rankPos: {x: 0, y: 0, z: 0}
   attacking: 0
   cycleTime: 0
@@ -1055,6 +1084,11 @@ Prefab:
       propertyPath: m_Name
       value: Enemy_0 (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 114802109495268380, guid: a796551ac8d598f4582c8297fb2bf3a9,
+        type: 2}
+      propertyPath: health
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: a796551ac8d598f4582c8297fb2bf3a9, type: 2}
@@ -1082,14 +1116,13 @@ MonoBehaviour:
   showDamageDuration: 0.1
   powerUpDropChance: 1
   status: 0
+  rank: 5
   originalColors: []
   materials: []
   showingDamage: 0
   damageDoneTime: 0
   scoreFloatText: {fileID: 1782784489030068, guid: f0eef297eb3e7604a9ec010f36af7557,
     type: 2}
-  notifiedOfDestruction: 0
-  moveSpeed: 5
   rankPos: {x: 0, y: 0, z: 0}
   attacking: 0
   cycleTime: 0
@@ -1132,6 +1165,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 114802109495268380, guid: a796551ac8d598f4582c8297fb2bf3a9,
+        type: 2}
+      propertyPath: health
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: a796551ac8d598f4582c8297fb2bf3a9, type: 2}
@@ -1159,14 +1197,13 @@ MonoBehaviour:
   showDamageDuration: 0.1
   powerUpDropChance: 1
   status: 0
+  rank: 5
   originalColors: []
   materials: []
   showingDamage: 0
   damageDoneTime: 0
   scoreFloatText: {fileID: 1782784489030068, guid: f0eef297eb3e7604a9ec010f36af7557,
     type: 2}
-  notifiedOfDestruction: 0
-  moveSpeed: 5
   rankPos: {x: 0, y: 0, z: 0}
   attacking: 0
   cycleTime: 0
@@ -1213,6 +1250,11 @@ Prefab:
       propertyPath: m_Name
       value: Enemy_0 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 114802109495268380, guid: a796551ac8d598f4582c8297fb2bf3a9,
+        type: 2}
+      propertyPath: health
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: a796551ac8d598f4582c8297fb2bf3a9, type: 2}
@@ -1240,14 +1282,13 @@ MonoBehaviour:
   showDamageDuration: 0.1
   powerUpDropChance: 1
   status: 0
+  rank: 5
   originalColors: []
   materials: []
   showingDamage: 0
   damageDoneTime: 0
   scoreFloatText: {fileID: 1782784489030068, guid: f0eef297eb3e7604a9ec010f36af7557,
     type: 2}
-  notifiedOfDestruction: 0
-  moveSpeed: 5
   rankPos: {x: 0, y: 0, z: 0}
   attacking: 0
   cycleTime: 0
@@ -1294,8 +1335,8 @@ MonoBehaviour:
   image: {fileID: 1878942927}
   playerLives: 5
   playerPos: {x: 0, y: 0, z: 0}
-  score: 0
   scoreText: {fileID: 817067951}
+  score: 0
 --- !u!1001 &1868878868
 Prefab:
   m_ObjectHideFlags: 0
@@ -1339,6 +1380,11 @@ Prefab:
       propertyPath: m_Name
       value: Enemy_0 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 114802109495268380, guid: a796551ac8d598f4582c8297fb2bf3a9,
+        type: 2}
+      propertyPath: health
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: a796551ac8d598f4582c8297fb2bf3a9, type: 2}
@@ -1366,14 +1412,13 @@ MonoBehaviour:
   showDamageDuration: 0.1
   powerUpDropChance: 1
   status: 0
+  rank: 5
   originalColors: []
   materials: []
   showingDamage: 0
   damageDoneTime: 0
   scoreFloatText: {fileID: 1782784489030068, guid: f0eef297eb3e7604a9ec010f36af7557,
     type: 2}
-  notifiedOfDestruction: 0
-  moveSpeed: 5
   rankPos: {x: 0, y: 0, z: 0}
   attacking: 0
   cycleTime: 0
@@ -1488,6 +1533,11 @@ Prefab:
       propertyPath: m_Name
       value: Enemy_0 (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 114802109495268380, guid: a796551ac8d598f4582c8297fb2bf3a9,
+        type: 2}
+      propertyPath: health
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: a796551ac8d598f4582c8297fb2bf3a9, type: 2}
@@ -1515,14 +1565,13 @@ MonoBehaviour:
   showDamageDuration: 0.1
   powerUpDropChance: 1
   status: 0
+  rank: 5
   originalColors: []
   materials: []
   showingDamage: 0
   damageDoneTime: 0
   scoreFloatText: {fileID: 1782784489030068, guid: f0eef297eb3e7604a9ec010f36af7557,
     type: 2}
-  notifiedOfDestruction: 0
-  moveSpeed: 5
   rankPos: {x: 0, y: 0, z: 0}
   attacking: 0
   cycleTime: 0
@@ -1569,6 +1618,11 @@ Prefab:
       propertyPath: m_Name
       value: Enemy_0 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 114802109495268380, guid: a796551ac8d598f4582c8297fb2bf3a9,
+        type: 2}
+      propertyPath: health
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: a796551ac8d598f4582c8297fb2bf3a9, type: 2}
@@ -1596,14 +1650,13 @@ MonoBehaviour:
   showDamageDuration: 0.1
   powerUpDropChance: 1
   status: 0
+  rank: 5
   originalColors: []
   materials: []
   showingDamage: 0
   damageDoneTime: 0
   scoreFloatText: {fileID: 1782784489030068, guid: f0eef297eb3e7604a9ec010f36af7557,
     type: 2}
-  notifiedOfDestruction: 0
-  moveSpeed: 5
   rankPos: {x: 0, y: 0, z: 0}
   attacking: 0
   cycleTime: 0
@@ -1650,6 +1703,11 @@ Prefab:
       propertyPath: m_Name
       value: Enemy_0 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 114802109495268380, guid: a796551ac8d598f4582c8297fb2bf3a9,
+        type: 2}
+      propertyPath: health
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: a796551ac8d598f4582c8297fb2bf3a9, type: 2}
@@ -1677,14 +1735,13 @@ MonoBehaviour:
   showDamageDuration: 0.1
   powerUpDropChance: 1
   status: 0
+  rank: 5
   originalColors: []
   materials: []
   showingDamage: 0
   damageDoneTime: 0
   scoreFloatText: {fileID: 1782784489030068, guid: f0eef297eb3e7604a9ec010f36af7557,
     type: 2}
-  notifiedOfDestruction: 0
-  moveSpeed: 5
   rankPos: {x: 0, y: 0, z: 0}
   attacking: 0
   cycleTime: 0

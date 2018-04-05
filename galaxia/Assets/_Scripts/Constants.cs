@@ -7,6 +7,8 @@ public class Constants : MonoBehaviour {
 
     // Singleton stuff
     public static Constants instance;
+    [Header("Use for testing")]
+    public bool testMode = false;
 
     public Image image;
     public int playerLives = 5;
@@ -26,13 +28,15 @@ public class Constants : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        image.rectTransform.sizeDelta = new Vector2(25 * playerLives, 33);
+        if (!testMode)
+            image.rectTransform.sizeDelta = new Vector2(25 * playerLives, 33);
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        image.rectTransform.sizeDelta = new Vector2(25 * playerLives, 33);
-        if (scoreText != null)
+        if (!testMode)
+            image.rectTransform.sizeDelta = new Vector2(25 * playerLives, 33);
+        if (!testMode || scoreText != null)
             scoreText.text = "SCORE: " + score;
     }
 

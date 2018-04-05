@@ -55,9 +55,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4239894955986386}
+  - component: {fileID: 114802109495268380}
   - component: {fileID: 54052425007687250}
   - component: {fileID: 114011551049121122}
-  - component: {fileID: 114802109495268380}
   m_Layer: 9
   m_Name: Enemy_0
   m_TagString: Enemy
@@ -218,6 +218,14 @@ MonoBehaviour:
   keepOnScreen: 0
   wrap: 0
   deleteIfOffScren: 0
+  customUpper: 0
+  customLower: 0
+  customRight: 0
+  customLeft: 0
+  upperBound: 0
+  lowerBound: 0
+  leftBound: 0
+  rightBound: 0
   isOnScreen: 1
   camWidth: 0
   camHeight: 0
@@ -243,14 +251,13 @@ MonoBehaviour:
   showDamageDuration: 0.1
   powerUpDropChance: 1
   status: 0
+  rank: 5
   originalColors: []
   materials: []
   showingDamage: 0
   damageDoneTime: 0
   scoreFloatText: {fileID: 1782784489030068, guid: f0eef297eb3e7604a9ec010f36af7557,
     type: 2}
-  notifiedOfDestruction: 0
-  moveSpeed: 5
   rankPos: {x: 0, y: 0, z: 0}
   attacking: 0
   cycleTime: 0
