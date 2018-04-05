@@ -50,7 +50,7 @@ LightmapSettings:
     m_IndirectOutputScale: 1
     m_AlbedoBoost: 1
     m_TemporalCoherenceThreshold: 1
-    m_EnvironmentLightingMode: 0
+    m_EnvironmentLightingMode: 1
     m_EnableBakedLightmaps: 1
     m_EnableRealtimeLightmaps: 1
   m_LightmapEditorSettings:
@@ -1002,14 +1002,15 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '
-
-
-    W/S - Move up/down
+  m_Text: 'W/S - Move up/down
 
     A/D - Move left/right
 
     Q/E - Roll left/right
+
+    Rolling grants temporary protection
+
+    from enemy bullets
 
     Space - Shoot'
 --- !u!222 &1833542149

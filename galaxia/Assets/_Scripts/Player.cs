@@ -15,6 +15,20 @@ public class Player : MonoBehaviour
     [Header("Shooting")]
     public GameObject projectilePrefab;
     public float projectileSpeed = 40f;
+    
+    private bool isInvulnerable = false;
+
+    public bool IsInvulnerable
+    {
+        get
+        {
+            return isInvulnerable;
+        }
+        set
+        {
+            isInvulnerable = value;
+        }
+    }
 
 	// Use this for initialization
 	void Start ()
@@ -24,6 +38,10 @@ public class Player : MonoBehaviour
 	
 	void Update ()
     {
+        if (isInvulnerable)
+        {
+            StartCoroutine("InvulnerableCooldown");
+        }
         Vector2 movement;
         if (!isRolling)
         {
@@ -56,7 +74,7 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Instantiate<GameObject>(projectilePrefab, gameObject.transform.position, new Quaternion()).GetComponent<Rigidbody>().velocity = Vector3.up * projectileSpeed;
+            Instantiate(projectilePrefab, gameObject.transform.position, new Quaternion()).GetComponent<Rigidbody>().velocity = Vector3.up * projectileSpeed;
         }
 
         // Update constants so enemies can hunt down the player. 
@@ -96,17 +114,13 @@ public class Player : MonoBehaviour
         if (otherGO.tag == "ProjectileEnemy")
         {
             Destroy(otherGO);
-            if(!isRolling) DoDeathSequence();
-        }
-        else if (otherGO.tag == "Laser")
-        {
-            DoDeathSequence();
+            if(!isRolling && !isInvulnerable) DoDeathSequence();
         }
         else if (otherGO.tag == "Enemy")
         {
             otherGO.GetComponent<Enemy>().score = 0;
             otherGO.GetComponent<Enemy>().StartCoroutine("Dying");
-            DoDeathSequence();
+            if(!isInvulnerable) DoDeathSequence();
         }
         else
         {
@@ -114,9 +128,25 @@ public class Player : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        GameObject otherGO = other.gameObject;
+        if(otherGO.tag == "Laser")
+        {
+            if(!isInvulnerable) DoDeathSequence();
+        }
+    }
+
     void DoDeathSequence()
     {
         Destroy(gameObject);
         Messenger.Broadcast(Messages.PLAYER_DESTROYED);
+    }
+
+    IEnumerator InvulnerableCooldown()
+    {
+        yield return new WaitForSeconds(1F);
+        isInvulnerable = false;
+        yield return null;
     }
 }

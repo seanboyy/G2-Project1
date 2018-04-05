@@ -32,12 +32,19 @@ public class Galaxya_SM : WytriamSTD.Scene_Manager {
         }
         else
         {
-            Instantiate(playerPrefab);
+            StartCoroutine("DelayPlayerSpawn");
         }
     }
 
     public void LoadMenu()
     {
         SceneManager.LoadScene("menu");
+    }
+
+    IEnumerator DelayPlayerSpawn()
+    {
+        yield return new WaitForSeconds(0.5F);
+        Instantiate(playerPrefab).GetComponent<Player>().IsInvulnerable = true;
+        yield return null;
     }
 }
