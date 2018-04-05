@@ -1332,8 +1332,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cd2ca5e338cc3d438369b4605dd2c6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  testMode: 0
   image: {fileID: 1878942927}
-  playerLives: 5
+  playerLives: 2
   playerPos: {x: 0, y: 0, z: 0}
   scoreText: {fileID: 817067951}
   score: 0

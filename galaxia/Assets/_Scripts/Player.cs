@@ -80,4 +80,10 @@ public class Player : MonoBehaviour
         isRolling = false;
         StopCoroutine("BarrelRollRight");
     }
+
+    void OnCollisionEnter(Collision coll)
+    {
+        GameObject otherGO = coll.gameObject;
+
+    }
 }
