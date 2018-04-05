@@ -5,7 +5,7 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     private BoundsCheck bndCheck;
-    private Renderer rend;
+    //private Renderer rend;
 
     [Header("Set Dynamically")]
     public Rigidbody rigid;
@@ -22,7 +22,7 @@ public class Projectile : MonoBehaviour
     void Start()
     {
         bndCheck = GetComponent<BoundsCheck>();
-        rend = GetComponent<Renderer>();
+        //rend = GetComponent<Renderer>();
         rigid = GetComponent<Rigidbody>();
     }
 	

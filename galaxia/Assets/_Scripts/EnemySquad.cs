@@ -6,7 +6,7 @@ public class EnemySquad : Enemy
 {
     [Header("Initialize in Header: EnemySquad")]
     public GameObject squadLeader;
-    public int rank = 0;        // rank is supposed to be the ordering of the ships orbiting squadLeader. 
+    public int order = 0;        // rank is supposed to be the ordering of the ships orbiting squadLeader. 
     public int spacing = 90;
     public float orbitSpeed = 5f;
     public float orbitRadius = 10f;
@@ -36,7 +36,7 @@ public class EnemySquad : Enemy
         }
         orb += Time.deltaTime * orbitSpeed;
         Vector3 sqlPos = squadLeader.transform.position;
-        pos = new Vector3(sqlPos.x + Mathf.Sin(orb + (spacing * rank)) * orbitRadius, sqlPos.y + Mathf.Cos(orb + (spacing * rank)) * orbitRadius, sqlPos.z);
+        pos = new Vector3(sqlPos.x + Mathf.Sin(orb + (spacing * order)) * orbitRadius, sqlPos.y + Mathf.Cos(orb + (spacing * order)) * orbitRadius, sqlPos.z);
     }
 
 }

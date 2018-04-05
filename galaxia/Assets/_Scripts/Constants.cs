@@ -15,7 +15,6 @@ public class Constants : MonoBehaviour {
 
     [SerializeField]
     private int score = 0;
-    private int scoreCnt = 0;
 
 
     void Awake()
@@ -39,9 +38,11 @@ public class Constants : MonoBehaviour {
 
     void EnemyShipDestroyed(Enemy enemy)
     {
-        Debug.Log("Constants() - score is " + enemy.score);
-        scoreCnt++;
-        Debug.Log("Constants::EnemyShipDestroyed() has been called " + scoreCnt + " times.");
         score += enemy.score;
+    }
+
+    public int getScore()
+    {
+        return score;
     }
 }
