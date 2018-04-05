@@ -33,7 +33,10 @@ public class Galaxya_SM : WytriamSTD.Scene_Manager {
         }
         else
         {
-            StartCoroutine("DelayPlayerSpawn");
+            if (FindObjectOfType<Player>() == null)
+            {
+                StartCoroutine("DelayPlayerSpawn");
+            }
         }
     }
 

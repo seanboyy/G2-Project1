@@ -15,7 +15,6 @@ public class Enemy_2 : Enemy_0
 	void Start ()
     {
         laser.SetActive(false);
-        StartCoroutine("Charging");
 	}
 
     public override void Move()
@@ -28,6 +27,13 @@ public class Enemy_2 : Enemy_0
                     pos = new Vector3(pos.x + (speed / 2 * Time.deltaTime), pos.y, pos.z);
                 else    // move left
                     pos = new Vector3(pos.x - (speed / 2 * Time.deltaTime), pos.y, pos.z);
+                foreach (GameObject minion in minions)
+                {
+                    if (minion != null)
+                    {
+                        minion.GetComponent<Enemy>().masterPos = pos;
+                    }
+                }
                 break;
             case EnemyState.charging:
                 //grab minions
@@ -65,6 +71,13 @@ public class Enemy_2 : Enemy_0
         while (true)
         {
             if (isMinion) isMinion = false;
+            foreach(GameObject minion in minions)
+            {
+                if(minion != null)
+                {
+                    minion.GetComponent<Enemy>().masterPos = pos;
+                }
+            }
             status = EnemyState.charging;
             yield return new WaitForSeconds(5);
             particleLaserCharging.GetComponent<ParticleSystem>().Play();
