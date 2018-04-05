@@ -24,7 +24,11 @@ public class Enemy_2 : Enemy_0
         {
             case EnemyState.waiting:
                 // move back and forth around the top of the screen...ominously - follow the player
-                pos = new Vector3(Constants.instance.playerPos.x, pos.y, pos.z);
+                if (Constants.instance.playerPos.x > pos.x) // move right
+                    pos = new Vector3(pos.x + (speed / 2 * Time.deltaTime), pos.y, pos.z);
+                else    // move left
+                    pos = new Vector3(pos.x - (speed / 2 * Time.deltaTime), pos.y, pos.z);
+                //pos = new Vector3(Constants.instance.playerPos.x, pos.y, pos.z);
                 break;
             //case EnemyState.charging:
             //    // grab nearby enemies and turn them into minions
@@ -40,15 +44,20 @@ public class Enemy_2 : Enemy_0
 
     IEnumerator Charging()
     {
-        yield return new WaitForSeconds(5);
-        status = EnemyState.charging;
-        particleLaserCharging.GetComponent<ParticleSystem>().Play();
-        // grab minions
-        yield return new WaitForSeconds(5);
-        // fire laser
-        particleLaserCharging.GetComponent<ParticleSystem>().Stop();
-        laser.SetActive(true);
-        laser.transform.localScale = new Vector3(1 + numMinions, laser.transform.localScale.y, laser.transform.localScale.z);
+        while (true)
+        {
+            yield return new WaitForSeconds(5);
+            status = EnemyState.charging;
+            particleLaserCharging.GetComponent<ParticleSystem>().Play();
+            // grab minions
+            yield return new WaitForSeconds(5);
+            // fire laser
+            particleLaserCharging.GetComponent<ParticleSystem>().Stop();
+            laser.SetActive(true);
+            laser.transform.localScale = new Vector3(1 + numMinions, laser.transform.localScale.y, laser.transform.localScale.z);
+            yield return new WaitForSeconds(5);
+            status = EnemyState.waiting;
+        }
     }
 
 }
