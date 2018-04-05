@@ -7,19 +7,20 @@ public class WaveManager : MonoBehaviour
     [Header("Enemies Spawned Bottom-Up")]
     public GameObject[] enemies;
 
-    [Header("Set Dynamically")]
-    public int enemiesAlive = 0;
-
     public int row = 0;
     public int rowIncrement = 6;
 
     // Some constants to help make rows
 
+    void Awake()
+    {
+        Messenger.AddListener(Messages.WAVE_CLEAR, SpawnAllEnemies);
+    }
+
 	// Use this for initialization
 	void Start ()
     {
-        for (int i = 0; i < enemies.Length; i++)
-            SpawnRank(enemies[i]);
+        SpawnAllEnemies();
 	}
 	
 	// Update is called once per frame
@@ -27,6 +28,13 @@ public class WaveManager : MonoBehaviour
     {
 		
 	}
+
+    public void SpawnAllEnemies()
+    {
+        for (int i = 0; i < enemies.Length; i++)
+            SpawnRank(enemies[i]);
+        row -= rowIncrement * enemies.Length;
+    }
 
     public void SpawnRank(GameObject enemyGO)
     {
@@ -36,15 +44,15 @@ public class WaveManager : MonoBehaviour
         switch (enemy.rank)
         {
             case ShipRank.enemy_0:
-                enemiesPerRow = 7;
+                enemiesPerRow = 7 + 2 * Constants.instance.GetWavesCleared();
                 enemySpacing = 6;
                 break;
             case ShipRank.enemy_1:
-                enemiesPerRow = 5;
+                enemiesPerRow = 5 + 2 * Constants.instance.GetWavesCleared();
                 enemySpacing = 8;
                 break;
             case ShipRank.enemy_2:
-                enemiesPerRow = 1;
+                enemiesPerRow = 1 + 2 * Constants.instance.GetWavesCleared();
                 enemySpacing = 15;
                 break;
             case ShipRank.NOT_CLASSIFIED:

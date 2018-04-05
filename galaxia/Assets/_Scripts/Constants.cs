@@ -21,15 +21,8 @@ public class Constants : MonoBehaviour {
     [SerializeField]
     private int numEnemies = 0;
 
-    public int GetPlayerLives()
-    {
-        return playerLives;
-    }
-
-    public void SetPlayerLives(int lives)
-    {
-        playerLives = lives;
-    }
+    [SerializeField]
+    private int wavesCleared = 0;
 
     void Awake()
     {
@@ -38,6 +31,7 @@ public class Constants : MonoBehaviour {
         Messenger.AddListener(Messages.ENEMY_SPAWNED, EnemySpawned);
         Messenger<Enemy>.AddListener(Messages.ENEMY_DESTROYED, EnemyShipDestroyed);
         Messenger.AddListener(Messages.PLAYER_DESTROYED, PlayerShipDestroyed);
+        Messenger.AddListener(Messages.WAVE_CLEAR, WavesClearedCounter);
     }
 
 	// Use this for initialization
@@ -54,6 +48,21 @@ public class Constants : MonoBehaviour {
             scoreText.text = "SCORE: " + score;
     }
 
+    public int GetPlayerLives()
+    {
+        return playerLives;
+    }
+
+    public void SetPlayerLives(int lives)
+    {
+        playerLives = lives;
+    }
+
+    public int GetWavesCleared()
+    {
+        return wavesCleared;
+    }
+
     void EnemySpawned()
     {
         numEnemies++;
@@ -68,6 +77,11 @@ public class Constants : MonoBehaviour {
     {
         score += enemy.score;
         numEnemies--;
+    }
+
+    void WavesClearedCounter()
+    {
+        wavesCleared++;
     }
 
     void PlayerShipDestroyed()

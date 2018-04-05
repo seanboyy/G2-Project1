@@ -108,7 +108,7 @@ public class Enemy_0 : Enemy
         }
         else
         {
-            Debug.Log((1 / Mathf.Sin(Mathf.Atan((pos.x - masterPos.x) / (pos.y - masterPos.y)) * (pos.x - masterPos.x))));
+            //Debug.Log((1 / Mathf.Sin(Mathf.Atan((pos.x - masterPos.x) / (pos.y - masterPos.y)) * (pos.x - masterPos.x))));
             transform.RotateAround(masterPos, Vector3.back, Time.deltaTime * 20 * orbitSpeed);
             transform.LookAt(masterPos);
             transform.rotation = Quaternion.Euler(-transform.rotation.x, 0, transform.rotation.z);

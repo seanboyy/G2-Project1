@@ -12,6 +12,8 @@ public class Galaxya_SM : WytriamSTD.Scene_Manager {
     private void Awake()
     {
         Messenger.AddListener(Messages.PLAYER_DESTROYED, SpawnPlayer);
+        Messenger<Enemy>.AddListener(Messages.ENEMY_DESTROYED, CheckWaveClear);
+
     }
 
     // Use this for initialization
@@ -23,6 +25,15 @@ public class Galaxya_SM : WytriamSTD.Scene_Manager {
 	void Update () {
         RenderSettings.skybox.SetFloat("_Rotation", Time.time * skySpinSpeed);
 	}
+
+    void CheckWaveClear(Enemy e)
+    {
+        if (Constants.instance.GetNumEnemies() <= 0)
+        {
+            announce("WAVE CLEAR");
+            Messenger.Broadcast(Messages.WAVE_CLEAR);
+        }
+    }
 
     void SpawnPlayer()
     {
