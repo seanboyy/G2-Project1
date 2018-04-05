@@ -50,7 +50,10 @@ public class Enemy : MonoBehaviour
         materials = Utils.GetAllMaterials(gameObject);
         originalColors = new Color[materials.Length];
         for (int i = 0; i < materials.Length; i++)
-            originalColors[i] = materials[i].color;
+            if (materials[i].HasProperty("_Color"))
+                originalColors[i] = materials[i].color;
+            else
+                originalColors[i] = new Color(0, 0, 0);
     }
 
     // This is a Property: A method that acts like a field
@@ -65,9 +68,9 @@ public class Enemy : MonoBehaviour
             this.transform.position = value;
         }
     }
-	
-	// Update is called once per frame
-	void Update ()
+
+    // Update is called once per frame
+    void Update()
     {
         Move();
 
@@ -78,7 +81,7 @@ public class Enemy : MonoBehaviour
 
         if (status != EnemyState.dying && health <= 0)
             StartCoroutine("Dying");
-	}
+    }
 
     public virtual void Move()
     {
@@ -120,17 +123,19 @@ public class Enemy : MonoBehaviour
     {
         foreach (Material m in materials)
         {
-            m.color = Color.red;
+            if(m.HasProperty("_Color"))
+                m.color = Color.red;
         }
         showingDamage = true;
-        damageDoneTime = Time.time + showDamageDuration;          
+        damageDoneTime = Time.time + showDamageDuration;
     }
 
     void UnShowDamage()
     {
-        for (int i=0; i<materials.Length; i++)
+        for (int i = 0; i < materials.Length; i++)
         {
-            materials[i].color = originalColors[i];
+            if(materials[i].HasProperty("_Color"))
+                materials[i].color = originalColors[i];
         }
         showingDamage = false;
     }
@@ -144,7 +149,7 @@ public class Enemy : MonoBehaviour
         // set the status to dying
         status = EnemyState.dying;
         Instantiate(scoreFloatText).GetComponent<ScoreFloatText>().InitializeText("+" + score, gameObject.transform.position, Color.blue);
-        
+
         // Destroy this Enemy
         Destroy(this.gameObject);
 
