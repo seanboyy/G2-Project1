@@ -11,6 +11,7 @@ public enum EnemyState
     rushing,    // This shall be the swooshing motion we currently have implemented
     attacking,  // this will be moving very close to the player and shooting, then return to the waiting position
     in_squad,   // enemy is in a squad and normal movement patterns are ignored. 
+    charging,   // this is for enemy_2
     dying       // enemy be deading
 }
 
@@ -19,8 +20,6 @@ public enum ShipRank
     enemy_0,    // The rank and file                    100 points
     enemy_1,    // The rank and file, can shoot back    125 points
     enemy_2,    // Squad Leaders                        150 points
-    enemy_3,    // Not implemented                      200 points
-    enemy_4,    // Not implemented                      500 points
     NOT_CLASSIFIED  // default                          0 points
 }
 

@@ -251,7 +251,7 @@ MonoBehaviour:
   showDamageDuration: 0.1
   powerUpDropChance: 1
   status: 0
-  rank: 5
+  rank: 0
   originalColors: []
   materials: []
   showingDamage: 0
@@ -259,7 +259,7 @@ MonoBehaviour:
   scoreFloatText: {fileID: 1782784489030068, guid: f0eef297eb3e7604a9ec010f36af7557,
     type: 2}
   rankPos: {x: 0, y: 0, z: 0}
-  attacking: 0
+  firing: 0
   cycleTime: 0
 --- !u!135 &135609835636606654
 SphereCollider:

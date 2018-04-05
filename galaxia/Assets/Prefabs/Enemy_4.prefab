@@ -366,13 +366,13 @@ MonoBehaviour:
   showDamageDuration: 0.1
   powerUpDropChance: 1
   status: 0
+  rank: 4
   originalColors: []
   materials: []
   showingDamage: 0
   damageDoneTime: 0
   scoreFloatText: {fileID: 1782784489030068, guid: f0eef297eb3e7604a9ec010f36af7557,
     type: 2}
-  notifiedOfDestruction: 0
 --- !u!135 &135811236148467746
 SphereCollider:
   m_ObjectHideFlags: 1

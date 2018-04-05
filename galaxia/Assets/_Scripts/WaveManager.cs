@@ -10,8 +10,8 @@ public class WaveManager : MonoBehaviour
     [Header("Set Dynamically")]
     public int enemiesAlive = 0;
 
-    private int row = 0;
-    private int rowIncrement = 8;
+    public int row = 0;
+    public int rowIncrement = 6;
 
     // Some constants to help make rows
 
@@ -44,11 +44,14 @@ public class WaveManager : MonoBehaviour
                 enemySpacing = 8;
                 break;
             case ShipRank.enemy_2:
-                enemiesPerRow = 2;
+                enemiesPerRow = 1;
                 enemySpacing = 15;
                 break;
-            case ShipRank.enemy_3:
-            case ShipRank.enemy_4:
+            case ShipRank.NOT_CLASSIFIED:
+                Debug.Log("Using ship where rank is not classified");
+                enemiesPerRow = 0;
+                enemySpacing = 0;
+                break;
             default:
                 enemiesPerRow = 0;
                 enemySpacing = 0;
@@ -62,7 +65,10 @@ public class WaveManager : MonoBehaviour
             enemiesPerRow /= 2;
         }
         else
+        {
+            Debug.Log("enemiesPerRow " + enemiesPerRow);
             i = 0;
+        }
         for (; i <= enemiesPerRow; i++)
         {
             Debug.Log(i);
