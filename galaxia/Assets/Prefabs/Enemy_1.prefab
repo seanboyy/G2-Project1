@@ -233,7 +233,7 @@ MonoBehaviour:
   cycleTime: 0
   projectilePrefab: {fileID: 1851271037231208, guid: cdfc21a2566e5074f973ab4613046151,
     type: 2}
-  projectileSpeed: 0
+  projectileSpeed: 40
 --- !u!114 &114800196579692012
 MonoBehaviour:
   m_ObjectHideFlags: 1

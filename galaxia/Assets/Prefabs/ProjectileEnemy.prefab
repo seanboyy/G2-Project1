@@ -25,9 +25,9 @@ GameObject:
   - component: {fileID: 65036565005295426}
   - component: {fileID: 23668489544038610}
   - component: {fileID: 54184178446466956}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: ProjectileEnemy
-  m_TagString: ProjectileHero
+  m_TagString: ProjectileEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -154,5 +154,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ab5bcb62497d424da1bb305c8f7d6b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileColor: {r: 0, g: 0.048275948, b: 1, a: 1}
+  projectileColor: {r: 0.026369138, g: 0.7647059, b: 0, a: 1}
   rb: {fileID: 0}
