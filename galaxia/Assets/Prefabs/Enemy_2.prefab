@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 4145191340373986}
   - component: {fileID: 33082003104962864}
   - component: {fileID: 23557889897875302}
-  - component: {fileID: 136580388366584058}
   m_Layer: 9
   m_Name: Cockpit
   m_TagString: Untagged
@@ -55,7 +54,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4466957149814968}
   - component: {fileID: 33069481179024124}
-  - component: {fileID: 135307387725096882}
   - component: {fileID: 23621602387070282}
   m_Layer: 9
   m_Name: Reactor
@@ -93,6 +91,7 @@ GameObject:
   - component: {fileID: 114368885472237792}
   - component: {fileID: 114907279569940370}
   - component: {fileID: 54063156326379722}
+  - component: {fileID: 136870365150978124}
   - component: {fileID: 135987718248798212}
   m_Layer: 9
   m_Name: Enemy_2
@@ -110,7 +109,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4268104606754810}
   - component: {fileID: 33159560104023322}
-  - component: {fileID: 136731279113936886}
   - component: {fileID: 23087621458032076}
   m_Layer: 9
   m_Name: Wing
@@ -406,6 +404,7 @@ MonoBehaviour:
   damageDoneTime: 0
   scoreFloatText: {fileID: 1782784489030068, guid: f0eef297eb3e7604a9ec010f36af7557,
     type: 2}
+  isMinion: 0
   rankPos: {x: 0, y: 0, z: 0}
   firing: 0
   cycleTime: 0
@@ -447,18 +446,6 @@ MonoBehaviour:
   offLeft: 0
   offUp: 0
   offDown: 0
---- !u!135 &135307387725096882
-SphereCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1497409976069464}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!135 &135987718248798212
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -484,30 +471,17 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!136 &136580388366584058
+--- !u!136 &136870365150978124
 CapsuleCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1048816554933934}
+  m_GameObject: {fileID: 1606155314395138}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 1
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!136 &136731279113936886
-CapsuleCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1804197637512218}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 1
+  m_Radius: 2
+  m_Height: 6
   m_Direction: 0
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!198 &198552509999725932

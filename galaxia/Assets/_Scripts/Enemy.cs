@@ -29,6 +29,8 @@ public class Enemy : MonoBehaviour
     public float speed = 10f;       // The speed in m/s
     public float fireRate = 0.3f;   // Seconds/shot (Unused)
     public float health = 10;
+    public float orbitSpeed = 1F;
+    public float orbitDistance = 10F;
     public int score = 100;         // Points earned for destroying this
     public float showDamageDuration = 0.1f; // # seconds to show damage
     public float powerUpDropChance = 1f;    // Chance to drop a power-up
@@ -41,6 +43,8 @@ public class Enemy : MonoBehaviour
     public bool showingDamage = false;
     public float damageDoneTime;    // Time to stop showing damage
     public GameObject scoreFloatText;
+    public bool isMinion = false;
+    public Vector3 masterPos;
 
     protected BoundsCheck bndCheck;
 
@@ -141,7 +145,7 @@ public class Enemy : MonoBehaviour
     }
 
     // This is a coroutine so we can play sounds or whatever if necessary later on
-    IEnumerator Dying()
+    protected virtual IEnumerator Dying()
     {
         // notify constants (and anyone else who cares) that this enemy died
         if (status != EnemyState.dying) Messenger<Enemy>.Broadcast(Messages.ENEMY_DESTROYED, this);

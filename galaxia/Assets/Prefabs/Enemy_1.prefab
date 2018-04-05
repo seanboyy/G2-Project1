@@ -20,7 +20,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4386546081013674}
   - component: {fileID: 33417977057391082}
-  - component: {fileID: 135334890315682518}
   - component: {fileID: 23602447548524408}
   m_Layer: 9
   m_Name: Cockpit
@@ -40,6 +39,7 @@ GameObject:
   - component: {fileID: 114744981127043330}
   - component: {fileID: 114800196579692012}
   - component: {fileID: 54990086815515890}
+  - component: {fileID: 136193429454161024}
   m_Layer: 9
   m_Name: Enemy_1
   m_TagString: Enemy
@@ -57,7 +57,6 @@ GameObject:
   - component: {fileID: 4559030442002846}
   - component: {fileID: 33316237052244430}
   - component: {fileID: 23067511009595660}
-  - component: {fileID: 136781851559003300}
   m_Layer: 9
   m_Name: Wing
   m_TagString: Untagged
@@ -228,6 +227,7 @@ MonoBehaviour:
   damageDoneTime: 0
   scoreFloatText: {fileID: 1782784489030068, guid: f0eef297eb3e7604a9ec010f36af7557,
     type: 2}
+  isMinion: 0
   rankPos: {x: 0, y: 0, z: 0}
   firing: 0
   cycleTime: 0
@@ -264,28 +264,16 @@ MonoBehaviour:
   offLeft: 0
   offUp: 0
   offDown: 0
---- !u!135 &135334890315682518
-SphereCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1080040920934016}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!136 &136781851559003300
+--- !u!136 &136193429454161024
 CapsuleCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1852993663500550}
+  m_GameObject: {fileID: 1098451645789946}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 1
+  m_Radius: 2
+  m_Height: 6
   m_Direction: 0
   m_Center: {x: 0, y: 0, z: 0}

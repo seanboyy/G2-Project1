@@ -28,14 +28,32 @@ public class Enemy_2 : Enemy_0
                     pos = new Vector3(pos.x + (speed / 2 * Time.deltaTime), pos.y, pos.z);
                 else    // move left
                     pos = new Vector3(pos.x - (speed / 2 * Time.deltaTime), pos.y, pos.z);
-                //pos = new Vector3(Constants.instance.playerPos.x, pos.y, pos.z);
                 break;
-            //case EnemyState.charging:
-            //    // grab nearby enemies and turn them into minions
-            //    break;
-            //case EnemyState.attacking:
-            //    // fire a massive laser
-            //    break;
+            case EnemyState.charging:
+                //grab minions
+                for(int i = 0; i < minions.Length; ++i)
+                {
+                    if(minions[i] == null)
+                    {
+                        if (numMinions > 0) --numMinions;
+                        RaycastHit[] raycastHits = Physics.SphereCastAll(pos, 50F, Vector3.down);
+                        for (int k = 0; k < raycastHits.Length; ++k)
+                        {
+                            if (!raycastHits[k].collider.gameObject.name.Contains("Enemy_2") && raycastHits[k].collider.gameObject.tag == "Enemy" && !raycastHits[k].collider.gameObject.GetComponent<Enemy>().isMinion)
+                            {
+                                minions[i] = raycastHits[k].collider.gameObject;
+                                raycastHits[k].collider.gameObject.GetComponent<Enemy>().isMinion = true;
+                                raycastHits[k].collider.gameObject.GetComponent<Enemy>().masterPos = pos;
+                                ++numMinions;
+                                break;
+                            }
+                        }
+                    }
+                }
+                break;
+            case EnemyState.attacking:
+                StartCoroutine("Charging");
+                break;
             default:
                 // do nothing
                 break;
@@ -46,8 +64,9 @@ public class Enemy_2 : Enemy_0
     {
         while (true)
         {
-            yield return new WaitForSeconds(5);
+            if (isMinion) isMinion = false;
             status = EnemyState.charging;
+            yield return new WaitForSeconds(5);
             particleLaserCharging.GetComponent<ParticleSystem>().Play();
             // grab minions
             yield return new WaitForSeconds(5);
@@ -61,4 +80,16 @@ public class Enemy_2 : Enemy_0
         }
     }
 
+    protected override IEnumerator Dying()
+    {
+        foreach(GameObject minion in minions)
+        {
+            if (minion != null)
+            {
+                minion.GetComponent<Enemy>().isMinion = false;
+                minion.GetComponent<Enemy>().status = EnemyState.rushing;
+            }
+        }
+        return base.Dying();
+    }
 }

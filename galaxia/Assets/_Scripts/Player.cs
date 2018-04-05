@@ -83,6 +83,7 @@ public class Player : MonoBehaviour
 
     IEnumerator BarrelRollLeft()
     {
+        transform.rotation = Quaternion.Euler(0, 0, 0);
         while(transform.rotation.eulerAngles.y < 349)
         {
             transform.Rotate(Vector3.up * rotationSpeed);
@@ -96,6 +97,7 @@ public class Player : MonoBehaviour
 
     IEnumerator BarrelRollRight()
     {
+        transform.rotation = Quaternion.Euler(0, 0, 0);
         do
         {
             transform.Rotate(Vector3.down * rotationSpeed);

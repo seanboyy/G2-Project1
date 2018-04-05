@@ -7,6 +7,7 @@ public class Galaxya_SM : WytriamSTD.Scene_Manager {
 
     public GameObject playerPrefab;
     public GameObject returnToMenuButton;
+    public float skySpinSpeed;
 
     private void Awake()
     {
@@ -20,7 +21,7 @@ public class Galaxya_SM : WytriamSTD.Scene_Manager {
 	
 	// Update is called once per frame
 	void Update () {
-		
+        RenderSettings.skybox.SetFloat("_Rotation", Time.time * skySpinSpeed);
 	}
 
     void SpawnPlayer()

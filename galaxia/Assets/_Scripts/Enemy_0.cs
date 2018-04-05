@@ -33,82 +33,92 @@ public class Enemy_0 : Enemy
         // this variable is used to keep track of movement cycles for Bezier curves. 
         // TO-DO: refactor variable name; write better comment. 
         float u;
-
-        switch (status)
+        if (!isMinion)
         {
-            case EnemyState.rushing:    // Enemies approach do not engage with player
-                //Debug.Log("Enemy Status - Rushing");
-                // Bezier curves work based on a u value between 0 & 1
-                u = (Time.time - cycleTime) / speed;
-                if (u > 1)
-                {
-                    status = EnemyState.waiting;
+            switch (status)
+            {
+                case EnemyState.rushing:    // Enemies approach do not engage with player
+                                            //Debug.Log("Enemy Status - Rushing");
+                                            // Bezier curves work based on a u value between 0 & 1
+                    u = (Time.time - cycleTime) / speed;
+                    if (u > 1)
+                    {
+                        status = EnemyState.waiting;
+                        break;
+                    }
+                    // Interpolate the three Bezier curve points
+                    Vector3 p01, p12;
+                    u = u - 0.2f * Mathf.Sin(u * Mathf.PI * 2);
+                    p01 = (1 - u) * rankPos + u * rushPos;
+                    p12 = (1 - u) * rushPos + u * rankPos;
+                    pos = (1 - u) * p01 + u * p12;
                     break;
-                }
-                // Interpolate the three Bezier curve points
-                Vector3 p01, p12;
-                u = u - 0.2f * Mathf.Sin(u * Mathf.PI * 2);
-                p01 = (1 - u) * rankPos + u * rushPos;
-                p12 = (1 - u) * rushPos + u * rankPos;
-                pos = (1 - u) * p01 + u * p12;
-                break;
-            case EnemyState.attacking:
-                Debug.Log("Enemy_0.Move() : status = attacking");
-                u = 4 * (Time.time - cycleTime) / speed;
-                Debug.Log(u);
-                // Move enemy off screen left
-                if (u < 1)
-                {
-                    Debug.Log("Enemy_0.Move() : status = attacking : Phase 1");
-                    pos = ((1 - u) * rankPos) + (u * upperOffScreenLeft);
-                }
-                // Move enemy to the opposite of its rankPos
-                if (u >= 1 && u < 2)
-                {
-                    Debug.Log("Enemy_0.Move() : status = attacking : Phase 2");
-                    // Makue u < 1
-                    u = u - 1;
-                    pos = ((1 - u) * upperOffScreenLeft) + (u * lowerRankPos);
-                }
-                // Move enemy off screen right
-                if (u >= 2 && u < 3)
-                {
-                    Debug.Log("Enemy_0.Move() : status = attacking : Phase 3");
-                    // Makue u < 1
-                    u = u - 2;
-                    pos = ((1 - u) * lowerRankPos) + (u * upperOffScreenRight);
-                }
-                // Return to rankPos
-                if (u >= 3 && u < 4)
-                {
-                    Debug.Log("Enemy_0.Move() : status = attacking : Phase 4");
-                    // Makue u < 1
-                    u = u - 3;
-                    pos = ((1 - u) * upperOffScreenRight) + (u * rankPos);
-                }
-                if (u >= 4)
-                {
-                    Debug.Log("Enemy_0.Move() : status = attacking : Ending");
-                    status = EnemyState.waiting;
-                }
+                case EnemyState.attacking:
+                    Debug.Log("Enemy_0.Move() : status = attacking");
+                    u = 4 * (Time.time - cycleTime) / speed;
+                    Debug.Log(u);
+                    // Move enemy off screen left
+                    if (u < 1)
+                    {
+                        Debug.Log("Enemy_0.Move() : status = attacking : Phase 1");
+                        pos = ((1 - u) * rankPos) + (u * upperOffScreenLeft);
+                    }
+                    // Move enemy to the opposite of its rankPos
+                    if (u >= 1 && u < 2)
+                    {
+                        Debug.Log("Enemy_0.Move() : status = attacking : Phase 2");
+                        // Makue u < 1
+                        u = u - 1;
+                        pos = ((1 - u) * upperOffScreenLeft) + (u * lowerRankPos);
+                    }
+                    // Move enemy off screen right
+                    if (u >= 2 && u < 3)
+                    {
+                        Debug.Log("Enemy_0.Move() : status = attacking : Phase 3");
+                        // Makue u < 1
+                        u = u - 2;
+                        pos = ((1 - u) * lowerRankPos) + (u * upperOffScreenRight);
+                    }
+                    // Return to rankPos
+                    if (u >= 3 && u < 4)
+                    {
+                        Debug.Log("Enemy_0.Move() : status = attacking : Phase 4");
+                        // Makue u < 1
+                        u = u - 3;
+                        pos = ((1 - u) * upperOffScreenRight) + (u * rankPos);
+                    }
+                    if (u >= 4)
+                    {
+                        Debug.Log("Enemy_0.Move() : status = attacking : Ending");
+                        status = EnemyState.waiting;
+                    }
 
-                break;
-            case EnemyState.in_squad:
-                Debug.Log("Not Implemented");
-                break;
-            case EnemyState.waiting:
-                //if (Random.value <= 0.5f)
-                //{
-                //    status = EnemyState.rushing;
-                //    rushPos = Constants.instance.playerPos;
-                //}
-                //else
-                //    status = EnemyState.attacking;
-                cycleTime = Time.time;
-                break;
-            default:
-                base.Move();
-                break;
+                    break;
+                case EnemyState.in_squad:
+                    Debug.Log("Not Implemented");
+                    break;
+                case EnemyState.waiting:
+                    if(Random.Range(0F, 1F) <= 0.5F)
+                    {
+                        status = EnemyState.rushing;
+                        rushPos = Constants.instance.playerPos;
+                    }
+                    else
+                    {
+                        status = EnemyState.attacking;
+                    }
+                    cycleTime = Time.time;
+                    break;
+                default:
+                    base.Move();
+                    break;
+            }
+        }
+        else
+        {
+            transform.RotateAround(masterPos, Vector3.back, Time.deltaTime * 20 * orbitSpeed);
+            transform.LookAt(masterPos);
+            transform.rotation = Quaternion.Euler(-transform.rotation.x, 0, transform.rotation.z);
         }
     }
 }
