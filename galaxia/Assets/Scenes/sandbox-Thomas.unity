@@ -278,6 +278,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 114368885472237792, guid: 7a82486152bcb7643918987133d8cc9a,
+        type: 2}
+      propertyPath: numMinions
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7a82486152bcb7643918987133d8cc9a, type: 2}
   m_IsPrefabParent: 0

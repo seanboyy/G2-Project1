@@ -48,7 +48,7 @@ public class WaveManager : MonoBehaviour
                 enemySpacing = 15;
                 break;
             case ShipRank.NOT_CLASSIFIED:
-                Debug.Log("Using ship where rank is not classified");
+                //Debug.Log("Using ship where rank is not classified");
                 enemiesPerRow = 0;
                 enemySpacing = 0;
                 break;
@@ -60,18 +60,18 @@ public class WaveManager : MonoBehaviour
         int i;
         if (enemiesPerRow % 2 != 0)
         {
-            Debug.Log("doing weird odd stuff");
+            //Debug.Log("doing weird odd stuff");
             i = -enemiesPerRow / 2;
             enemiesPerRow /= 2;
         }
         else
         {
-            Debug.Log("enemiesPerRow " + enemiesPerRow);
+            //Debug.Log("enemiesPerRow " + enemiesPerRow);
             i = 0;
         }
         for (; i <= enemiesPerRow; i++)
         {
-            Debug.Log(i);
+            //Debug.Log(i);
             Vector3 rankPos = new Vector3(i * enemySpacing, row, 0);
             Instantiate(enemyGO, rankPos, new Quaternion()).GetComponent<Enemy_0>().rankPos = rankPos;
         }
