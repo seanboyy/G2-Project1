@@ -18,6 +18,9 @@ public class Constants : MonoBehaviour {
     [SerializeField]
     private int score = 0;
 
+    [SerializeField]
+    private int numEnemies = 0;
+
     public int GetPlayerLives()
     {
         return playerLives;
@@ -32,6 +35,7 @@ public class Constants : MonoBehaviour {
     {
         if (instance == null)
             instance = this;
+        Messenger.AddListener(Messages.ENEMY_SPAWNED, EnemySpawned);
         Messenger<Enemy>.AddListener(Messages.ENEMY_DESTROYED, EnemyShipDestroyed);
         Messenger.AddListener(Messages.PLAYER_DESTROYED, PlayerShipDestroyed);
     }
@@ -50,9 +54,20 @@ public class Constants : MonoBehaviour {
             scoreText.text = "SCORE: " + score;
     }
 
+    void EnemySpawned()
+    {
+        numEnemies++;
+    }
+
+    public int GetNumEnemies()
+    {
+        return numEnemies;
+    }
+
     void EnemyShipDestroyed(Enemy enemy)
     {
         score += enemy.score;
+        numEnemies--;
     }
 
     void PlayerShipDestroyed()

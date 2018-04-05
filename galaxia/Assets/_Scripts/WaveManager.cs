@@ -74,6 +74,7 @@ public class WaveManager : MonoBehaviour
             //Debug.Log(i);
             Vector3 rankPos = new Vector3(i * enemySpacing, row, 0);
             Instantiate(enemyGO, rankPos, new Quaternion()).GetComponent<Enemy_0>().rankPos = rankPos;
+            Messenger.Broadcast(Messages.ENEMY_SPAWNED);
         }
         row += rowIncrement;
     }
