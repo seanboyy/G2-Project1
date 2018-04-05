@@ -29,13 +29,13 @@ public class Constants : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         if (!testMode)
-            image.rectTransform.sizeDelta = new Vector2(25 * playerLives, 33);
+            image.rectTransform.sizeDelta = new Vector2(25 * (playerLives - 1), 33);
 	}
 	
 	// Update is called once per frame
 	void Update () {
         if (!testMode)
-            image.rectTransform.sizeDelta = new Vector2(25 * playerLives, 33);
+            image.rectTransform.sizeDelta = new Vector2(25 * (playerLives - 1), 33);
         if (!testMode || scoreText != null)
             scoreText.text = "SCORE: " + score;
     }
