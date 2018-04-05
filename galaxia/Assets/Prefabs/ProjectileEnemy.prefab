@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 65036565005295426}
   - component: {fileID: 23668489544038610}
   - component: {fileID: 54184178446466956}
+  - component: {fileID: 114174620426086676}
   m_Layer: 11
   m_Name: ProjectileEnemy
   m_TagString: ProjectileEnemy
@@ -113,6 +114,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114174620426086676
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1851271037231208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5ac5c5ab8da53c46b41418140c43af6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 10
 --- !u!114 &114413394248838814
 MonoBehaviour:
   m_ObjectHideFlags: 1

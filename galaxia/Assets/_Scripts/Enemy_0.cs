@@ -6,7 +6,7 @@ public class Enemy_0 : Enemy
 {
     [Header("Set Dynamically: Enemy_0")]
     public Vector3 rankPos;
-    public bool attacking;
+    public bool firing;
     public float cycleTime;
 
     // Vectors for attacking. 
@@ -60,7 +60,7 @@ public class Enemy_0 : Enemy
                 {
                     pos = ((1 - u) * rankPos) + (u * upperOffScreenLeft);
                 }
-                // Move enemy to the opposite of it's rankPos
+                // Move enemy to the opposite of its rankPos
                 if (u >= 1 && u < 2)
                 {
                     // Makue u < 1
