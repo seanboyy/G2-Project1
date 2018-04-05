@@ -70,18 +70,18 @@ public class Enemy_2 : Enemy_0
     {
         while (true)
         {
-            if (isMinion) isMinion = false;
-            foreach(GameObject minion in minions)
-            {
-                if(minion != null)
-                {
-                    minion.GetComponent<Enemy>().masterPos = pos;
-                }
-            }
             yield return new WaitForSeconds(5);
             status = EnemyState.charging;
             particleLaserCharging.GetComponent<ParticleSystem>().Play();
             // grab minions
+            if (isMinion) isMinion = false;
+            foreach (GameObject minion in minions)
+            {
+                if (minion != null)
+                {
+                    minion.GetComponent<Enemy>().masterPos = pos;
+                }
+            }
             yield return new WaitForSeconds(5);
             // fire laser
             particleLaserCharging.GetComponent<ParticleSystem>().Stop();
