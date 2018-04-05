@@ -10,12 +10,12 @@ public class Player : MonoBehaviour
     public float rollMult = -45;
     public float pitchMult = 30;
 
-    private bool isRolling = false; 
-    
+    private bool isRolling = false;
+
     [Header("Shooting")]
     public GameObject projectilePrefab;
     public float projectileSpeed = 40f;
-    
+
     private bool isInvulnerable = false;
 
     public bool IsInvulnerable
@@ -30,13 +30,13 @@ public class Player : MonoBehaviour
         }
     }
 
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start()
     {
-		
-	}
-	
-	void Update ()
+
+    }
+
+    void Update()
     {
         if (isInvulnerable)
         {
@@ -84,7 +84,7 @@ public class Player : MonoBehaviour
     IEnumerator BarrelRollLeft()
     {
         transform.rotation = Quaternion.Euler(0, 0, 0);
-        while(transform.rotation.eulerAngles.y < 349)
+        while (transform.rotation.eulerAngles.y < 349)
         {
             transform.Rotate(Vector3.up * rotationSpeed);
             transform.position += Vector3.left * speed * Time.deltaTime;
@@ -116,13 +116,13 @@ public class Player : MonoBehaviour
         if (otherGO.tag == "ProjectileEnemy")
         {
             Destroy(otherGO);
-            if(!isRolling && !isInvulnerable) DoDeathSequence();
+            if (!isRolling && !isInvulnerable) DoDeathSequence();
         }
         else if (otherGO.tag == "Enemy")
         {
             otherGO.GetComponent<Enemy>().score = 0;
             otherGO.GetComponent<Enemy>().StartCoroutine("Dying");
-            if(!isInvulnerable) DoDeathSequence();
+            if (!isInvulnerable) DoDeathSequence();
         }
         else
         {
@@ -133,9 +133,9 @@ public class Player : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         GameObject otherGO = other.gameObject;
-        if(otherGO.tag == "Laser")
+        if (otherGO.tag == "Laser")
         {
-            if(!isInvulnerable) DoDeathSequence();
+            if (!isInvulnerable) DoDeathSequence();
         }
     }
 
