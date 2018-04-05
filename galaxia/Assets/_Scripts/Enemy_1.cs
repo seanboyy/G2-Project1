@@ -26,6 +26,7 @@ public class Enemy_1 : Enemy_0
                     int times = Random.Range(2, 5);
                     StartCoroutine(Fire(times));
                 }
+                Debug.Log("Moving into Enemy_0.Move() : status = attacking");
                 base.Move();
                 break;
             default:
@@ -42,6 +43,7 @@ public class Enemy_1 : Enemy_0
             Instantiate(projectilePrefab, gameObject.transform.position, new Quaternion()).GetComponent<Rigidbody>().velocity = Vector3.down * projectileSpeed;
             yield return new WaitForSeconds(fireRate);
         }
+        cycleTime = Time.time;
         yield return null;
     }
 }
