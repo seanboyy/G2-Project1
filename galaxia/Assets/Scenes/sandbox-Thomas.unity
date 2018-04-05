@@ -283,6 +283,10 @@ Prefab:
       propertyPath: numMinions
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1569382154429404, guid: 7a82486152bcb7643918987133d8cc9a, type: 2}
+      propertyPath: m_TagString
+      value: Laser
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7a82486152bcb7643918987133d8cc9a, type: 2}
   m_IsPrefabParent: 0

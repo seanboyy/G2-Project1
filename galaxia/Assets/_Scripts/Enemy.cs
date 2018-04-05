@@ -148,7 +148,8 @@ public class Enemy : MonoBehaviour
 
         // set the status to dying
         status = EnemyState.dying;
-        Instantiate(scoreFloatText).GetComponent<ScoreFloatText>().InitializeText("+" + score, gameObject.transform.position, Color.blue);
+        if (score != 0)
+            Instantiate(scoreFloatText).GetComponent<ScoreFloatText>().InitializeText("+" + score, gameObject.transform.position, Color.blue);
 
         // Destroy this Enemy
         Destroy(this.gameObject);

@@ -8,6 +8,7 @@ TagManager:
   - ProjectileHero
   - PowerUp
   - ProjectileEnemy
+  - Laser
   layers:
   - Default
   - TransparentFX

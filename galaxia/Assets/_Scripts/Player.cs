@@ -98,8 +98,19 @@ public class Player : MonoBehaviour
             Destroy(otherGO);
             if(!isRolling) DoDeathSequence();
         }
+        else if (otherGO.tag == "Laser")
+        {
+            DoDeathSequence();
+        }
+        else if (otherGO.tag == "Enemy")
+        {
+            otherGO.GetComponent<Enemy>().score = 0;
+            otherGO.GetComponent<Enemy>().StartCoroutine("Dying");
+            DoDeathSequence();
+        }
         else
         {
+            Debug.Log("Player collided with non-enemy: " + otherGO.name);
         }
     }
 

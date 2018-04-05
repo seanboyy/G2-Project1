@@ -56,6 +56,7 @@ public class Enemy_2 : Enemy_0
             laser.SetActive(true);
             laser.transform.localScale = new Vector3(1 + numMinions, laser.transform.localScale.y, laser.transform.localScale.z);
             yield return new WaitForSeconds(5);
+            laser.SetActive(false);
             status = EnemyState.waiting;
         }
     }
