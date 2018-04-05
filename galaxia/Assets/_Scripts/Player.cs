@@ -38,7 +38,10 @@ public class Player : MonoBehaviour
         gameObject.transform.position = new Vector3(pos.x + movement.x, pos.y + movement.y, pos.z);
 
         // Rotate the ship to make it feel more dynamic
-        transform.rotation = Quaternion.Euler(movement.y * pitchMult, movement.x * rollMult, 0);
+        if (!isRolling)
+        {
+            transform.rotation = Quaternion.Euler(movement.y * pitchMult, movement.x * rollMult, 0);
+        }
 
         if (Input.GetKeyDown(KeyCode.Q) && !isRolling)
         {
@@ -93,7 +96,7 @@ public class Player : MonoBehaviour
         if (otherGO.tag == "ProjectileEnemy")
         {
             Destroy(otherGO);
-            DoDeathSequence();
+            if(!isRolling) DoDeathSequence();
         }
         else
         {
