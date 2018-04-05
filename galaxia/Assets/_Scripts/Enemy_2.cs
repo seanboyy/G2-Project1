@@ -14,6 +14,7 @@ public class Enemy_2 : Enemy_0
 	// Use this for initialization
 	void Start ()
     {
+        StartCoroutine("Charging");
         laser.SetActive(false);
 	}
 
@@ -36,7 +37,6 @@ public class Enemy_2 : Enemy_0
                 }
                 break;
             case EnemyState.charging:
-                //grab minions
                 for(int i = 0; i < minions.Length; ++i)
                 {
                     if(minions[i] == null)
@@ -70,18 +70,18 @@ public class Enemy_2 : Enemy_0
     {
         while (true)
         {
+            yield return new WaitForSeconds(5);
+            status = EnemyState.charging;
+            particleLaserCharging.GetComponent<ParticleSystem>().Play();
+            // grab minions
             if (isMinion) isMinion = false;
-            foreach(GameObject minion in minions)
+            foreach (GameObject minion in minions)
             {
-                if(minion != null)
+                if (minion != null)
                 {
                     minion.GetComponent<Enemy>().masterPos = pos;
                 }
             }
-            status = EnemyState.charging;
-            yield return new WaitForSeconds(5);
-            particleLaserCharging.GetComponent<ParticleSystem>().Play();
-            // grab minions
             yield return new WaitForSeconds(5);
             // fire laser
             particleLaserCharging.GetComponent<ParticleSystem>().Stop();
